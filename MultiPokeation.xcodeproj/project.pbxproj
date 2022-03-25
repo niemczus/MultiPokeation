@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3284A41827EDC63D0036C650 /* PokemonAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 3284A41727EDC63D0036C650 /* PokemonAPI */; };
+		3284A41A27EDD4370036C650 /* Pokemons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3284A41927EDD4370036C650 /* Pokemons.swift */; };
 		328D24D927E8BF7300E8EF83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328D24D827E8BF7300E8EF83 /* AppDelegate.swift */; };
 		328D24DB27E8BF7300E8EF83 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328D24DA27E8BF7300E8EF83 /* SceneDelegate.swift */; };
 		328D24DD27E8BF7300E8EF83 /* InitialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328D24DC27E8BF7300E8EF83 /* InitialVC.swift */; };
@@ -17,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3284A41927EDD4370036C650 /* Pokemons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemons.swift; sourceTree = "<group>"; };
 		328D24D527E8BF7300E8EF83 /* MultiPokeation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiPokeation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		328D24D827E8BF7300E8EF83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		328D24DA27E8BF7300E8EF83 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -33,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3284A41827EDC63D0036C650 /* PokemonAPI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +70,7 @@
 				328D24E627E8BF7400E8EF83 /* LaunchScreen.storyboard */,
 				328D24E927E8BF7400E8EF83 /* Info.plist */,
 				328D24E127E8BF7300E8EF83 /* MultiPokeation.xcdatamodeld */,
+				3284A41927EDD4370036C650 /* Pokemons.swift */,
 			);
 			path = MultiPokeation;
 			sourceTree = "<group>";
@@ -86,6 +91,9 @@
 			dependencies = (
 			);
 			name = MultiPokeation;
+			packageProductDependencies = (
+				3284A41727EDC63D0036C650 /* PokemonAPI */,
+			);
 			productName = MultiPokeation;
 			productReference = 328D24D527E8BF7300E8EF83 /* MultiPokeation.app */;
 			productType = "com.apple.product-type.application";
@@ -114,6 +122,9 @@
 				Base,
 			);
 			mainGroup = 328D24CC27E8BF7300E8EF83;
+			packageReferences = (
+				3284A41627EDC63D0036C650 /* XCRemoteSwiftPackageReference "PokemonAPI" */,
+			);
 			productRefGroup = 328D24D627E8BF7300E8EF83 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -143,6 +154,7 @@
 			files = (
 				328D24E327E8BF7300E8EF83 /* MultiPokeation.xcdatamodeld in Sources */,
 				328D24DD27E8BF7300E8EF83 /* InitialVC.swift in Sources */,
+				3284A41A27EDD4370036C650 /* Pokemons.swift in Sources */,
 				328D24D927E8BF7300E8EF83 /* AppDelegate.swift in Sources */,
 				328D24DB27E8BF7300E8EF83 /* SceneDelegate.swift in Sources */,
 			);
@@ -362,6 +374,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3284A41627EDC63D0036C650 /* XCRemoteSwiftPackageReference "PokemonAPI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kinkofer/PokemonAPI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3284A41727EDC63D0036C650 /* PokemonAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3284A41627EDC63D0036C650 /* XCRemoteSwiftPackageReference "PokemonAPI" */;
+			productName = PokemonAPI;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		328D24E127E8BF7300E8EF83 /* MultiPokeation.xcdatamodeld */ = {
