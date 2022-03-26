@@ -9,31 +9,38 @@ import UIKit
 
 class InitialVC: UIViewController {
     
+    @IBOutlet weak var nameTextField: UITextField!
     
     @IBOutlet weak var firstEvolutionImageView: UIImageView!
     @IBOutlet weak var secondEvolutionImageView: UIImageView!
     @IBOutlet weak var thirdEvolutionImageView: UIImageView!
+    
     @IBOutlet weak var picker: UIPickerView!
     
-    let pokemons = [
-        Pokemon(firstEvolution: Details(evolutionName: "Pichu", evolutionNumber: 172), secondEvolution: Details(evolutionName: "Pikachu", evolutionNumber: 25), thirdEvolution: Details(evolutionName: "Raichu", evolutionNumber: 26)),
-        Pokemon(firstEvolution: Details(evolutionName: "Igglybuff", evolutionNumber: 174), secondEvolution: Details(evolutionName: "Jigglypuff", evolutionNumber: 39), thirdEvolution: Details(evolutionName: "Wigglytuff", evolutionNumber: 40)),
-        Pokemon(firstEvolution: Details(evolutionName: "Bulbasaur", evolutionNumber: 1), secondEvolution: Details(evolutionName: "Ivysaur", evolutionNumber: 2), thirdEvolution: Details(evolutionName: "Venusaur", evolutionNumber: 3)),
-        Pokemon(firstEvolution: Details(evolutionName: "Charmander", evolutionNumber: 4), secondEvolution: Details(evolutionName: "Charmeren", evolutionNumber: 5), thirdEvolution: Details(evolutionName: "Charizard", evolutionNumber: 6))
-
-        ]
+    var choosen = pokemons[0]
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        nameTextField.delegate = self
         picker.dataSource = self
         picker.delegate = self
         firstEvolutionImageView.layer.cornerRadius = 15
         secondEvolutionImageView.layer.cornerRadius = 15
         thirdEvolutionImageView.layer.cornerRadius = 15
         
+        setupHideKeyboardOnTap()
         setGradientBackground()
-        getPokemons(firstID: pokemons[0].firstEvolution.evolutionNumber, secondID: pokemons[0].secondEvolution.evolutionNumber, thirdID: pokemons[0].thirdEvolution.evolutionNumber)
-        
+        getPokemons(firstID: pokemons[0].firstEvolution.number, secondID: pokemons[0].secondEvolution.number, thirdID: pokemons[0].thirdEvolution.number)
+    }
+    
+    @IBAction func nameTextView(_ sender: UITextField) {
+        resignFirstResponder()
+    }
+    
+    @IBAction func confirmButton(_ sender: UIButton) {
+        saveSettings()
     }
     
     func getPokemons(firstID: Int, secondID: Int, thirdID: Int) {
@@ -41,6 +48,14 @@ class InitialVC: UIViewController {
         firstEvolutionImageView.loadFrom(urlAdress: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/\(firstID).png")
         secondEvolutionImageView.loadFrom(urlAdress: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/\(secondID).png")
         thirdEvolutionImageView.loadFrom(urlAdress: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/\(thirdID).png")
+    }
+    
+    func saveSettings() {
+        let settingsDictionary: [String: Any?] = [
+            "username": nameTextField.text,
+            "pokemon": choosen
+        ]
+        UserDefaults.standard.set(settingsDictionary, forKey: "settings")
     }
 }
 
@@ -56,14 +71,31 @@ extension InitialVC: UIPickerViewDataSource {
    
 }
 
-extension InitialVC:  UIPickerViewDelegate {
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-           return "\(pokemons[row].secondEvolution.evolutionName)"
-       }
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        getPokemons(firstID: pokemons[row].firstEvolution.evolutionNumber, secondID: pokemons[row].secondEvolution.evolutionNumber, thirdID: pokemons[row].thirdEvolution.evolutionNumber)
+extension InitialVC: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        nameTextField.resignFirstResponder()
+        return true
     }
+}
 
+extension InitialVC: UIPickerViewDelegate {
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        getPokemons(firstID: pokemons[row].firstEvolution.number, secondID: pokemons[row].secondEvolution.number, thirdID: pokemons[row].thirdEvolution.number)
+        choosen = pokemons[row]
+    }
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        var pickerLabel: UILabel? = (view as? UILabel)
+        if pickerLabel == nil {
+            pickerLabel = UILabel()
+            pickerLabel?.font = UIFont(name: "MontserratAlternates-Regular", size: 25)
+            pickerLabel?.textAlignment = .center
+        }
+            pickerLabel?.text = "\(pokemons[row].secondEvolution.name)"
+            pickerLabel?.textColor = UIColor(named: "orange")
+            
+            return pickerLabel!
+    }
 }
 
 extension UIImageView {
@@ -91,5 +123,20 @@ extension UIViewController {
         gradientLayer.frame = self.view.bounds
         
         self.view.layer.insertSublayer(gradientLayer, at:0)
+    }
+}
+
+extension UIViewController {
+    /// Call this once to dismiss open keyboards by tapping anywhere in the view controller
+    func setupHideKeyboardOnTap() {
+        self.view.addGestureRecognizer(self.endEditingRecognizer())
+        self.navigationController?.navigationBar.addGestureRecognizer(self.endEditingRecognizer())
+    }
+
+    /// Dismisses the keyboard from self.view
+    private func endEditingRecognizer() -> UIGestureRecognizer {
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(self.view.endEditing(_:)))
+        tap.cancelsTouchesInView = false
+        return tap
     }
 }
