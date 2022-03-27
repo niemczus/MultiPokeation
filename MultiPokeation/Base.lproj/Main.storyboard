@@ -139,24 +139,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWT-IJ-HhF">
-                                <rect key="frame" x="15" y="44" width="50" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="EIE-Ws-7v7"/>
-                                    <constraint firstAttribute="height" constant="35" id="Z9b-uR-ZXz"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="arrow.clockwise" catalog="system" title="" cornerStyle="capsule">
-                                    <backgroundConfiguration key="background" strokeWidth="2">
-                                        <color key="backgroundColor" red="0.94323444369999998" green="1" blue="0.76193863149999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <color key="strokeColor" red="0.9983170629" green="0.73196667429999995" blue="0.73419582839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </backgroundConfiguration>
-                                    <color key="baseForegroundColor" red="0.72016161680000002" green="0.66506642100000002" blue="0.76412624119999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="4Zb-IZ-Ulr"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kid name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KOc-OR-Krx">
                                 <rect key="frame" x="111.33333333333333" y="94" width="152.66666666666669" height="36.666666666666657"/>
                                 <fontDescription key="fontDescription" name="MontserratAlternates-Bold" family="Montserrat Alternates" pointSize="30"/>
@@ -232,11 +214,36 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rye-Dv-rLl">
+                                <rect key="frame" x="20" y="45" width="50" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWT-IJ-HhF">
+                                        <rect key="frame" x="7.6666666666666679" y="7.6666666666666643" width="35" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="35" id="EIE-Ws-7v7"/>
+                                            <constraint firstAttribute="height" constant="35" id="Z9b-uR-ZXz"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="" cornerStyle="capsule">
+                                            <backgroundConfiguration key="background" image="returnIcon"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="4Zb-IZ-Ulr"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.94323444369999998" green="1" blue="0.76193863149999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="EgC-9e-mvd"/>
+                                    <constraint firstAttribute="height" constant="50" id="LMn-Ba-u2l"/>
+                                    <constraint firstItem="fWT-IJ-HhF" firstAttribute="centerX" secondItem="rye-Dv-rLl" secondAttribute="centerX" id="NZc-mE-XfK"/>
+                                    <constraint firstItem="fWT-IJ-HhF" firstAttribute="centerY" secondItem="rye-Dv-rLl" secondAttribute="centerY" id="X93-rS-PJ1"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="PdF-JL-PsI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="fWT-IJ-HhF" firstAttribute="leading" secondItem="PdF-JL-PsI" secondAttribute="leading" constant="15" id="00S-67-cyw"/>
                             <constraint firstItem="BPb-WA-fnp" firstAttribute="centerX" secondItem="VMk-ZX-eqt" secondAttribute="centerX" id="0eC-FI-gba"/>
                             <constraint firstItem="f65-jw-n4y" firstAttribute="top" secondItem="mLf-bj-EIh" secondAttribute="bottom" constant="30" id="A1r-Hy-XyA"/>
                             <constraint firstItem="R7i-H0-S6X" firstAttribute="centerX" secondItem="VMk-ZX-eqt" secondAttribute="centerX" id="Bdl-EC-gG4"/>
@@ -246,13 +253,13 @@
                             <constraint firstItem="R7i-H0-S6X" firstAttribute="top" secondItem="KOc-OR-Krx" secondAttribute="bottom" constant="5" id="Vng-7T-5x9"/>
                             <constraint firstItem="KOc-OR-Krx" firstAttribute="centerX" secondItem="VMk-ZX-eqt" secondAttribute="centerX" id="Wal-hE-qai"/>
                             <constraint firstItem="fFk-k9-mmv" firstAttribute="top" secondItem="R7i-H0-S6X" secondAttribute="bottom" constant="10" id="btt-rm-2Af"/>
-                            <constraint firstItem="PdF-JL-PsI" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="fWT-IJ-HhF" secondAttribute="trailing" constant="310" id="ceK-8Z-aNV"/>
+                            <constraint firstItem="rye-Dv-rLl" firstAttribute="top" secondItem="VMk-ZX-eqt" secondAttribute="top" constant="45" id="jyc-WO-W7l"/>
                             <constraint firstItem="f65-jw-n4y" firstAttribute="centerX" secondItem="VMk-ZX-eqt" secondAttribute="centerX" id="rt6-m3-9qJ"/>
                             <constraint firstItem="mLf-bj-EIh" firstAttribute="top" secondItem="fFk-k9-mmv" secondAttribute="bottom" constant="30" id="the-It-j3s"/>
+                            <constraint firstItem="rye-Dv-rLl" firstAttribute="leading" secondItem="PdF-JL-PsI" secondAttribute="leading" constant="20" id="vU5-mJ-FOW"/>
                             <constraint firstItem="KOc-OR-Krx" firstAttribute="top" secondItem="PdF-JL-PsI" secondAttribute="top" constant="50" id="wOO-N0-Wd7"/>
                             <constraint firstItem="BPb-WA-fnp" firstAttribute="top" secondItem="f65-jw-n4y" secondAttribute="bottom" constant="8" id="x7y-AL-M3E"/>
                             <constraint firstItem="PdF-JL-PsI" firstAttribute="bottom" secondItem="WPP-bL-6w3" secondAttribute="bottom" constant="15" id="xJD-Kt-uUp"/>
-                            <constraint firstItem="fWT-IJ-HhF" firstAttribute="top" secondItem="PdF-JL-PsI" secondAttribute="top" id="z4f-wn-gSg"/>
                         </constraints>
                     </view>
                     <connections>
@@ -261,6 +268,7 @@
                         <outlet property="pokemonImageView" destination="mLf-bj-EIh" id="0DP-cM-IGT"/>
                         <outlet property="pokemonLabel" destination="R7i-H0-S6X" id="Qn6-OX-V5U"/>
                         <outlet property="progressView" destination="IpZ-La-QoM" id="i6P-vN-4O0"/>
+                        <outlet property="returnView" destination="rye-Dv-rLl" id="bea-gg-8hC"/>
                         <outlet property="scoreLabel" destination="f65-jw-n4y" id="Ntu-re-fbW"/>
                     </connections>
                 </viewController>
@@ -270,7 +278,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
+        <image name="returnIcon" width="512" height="512"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

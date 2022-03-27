@@ -17,7 +17,8 @@ class InitialVC: UIViewController {
     
     @IBOutlet weak var picker: UIPickerView!
     
-    var choosen = pokemons[0]
+    var choosenName = pokemons[0].firstEvolution.name
+    var choosenNumber = pokemons[0].firstEvolution.number
     
     
     
@@ -53,7 +54,8 @@ class InitialVC: UIViewController {
     func saveSettings() {
         let settingsDictionary: [String: Any?] = [
             "username": nameTextField.text,
-            "pokemon": choosen
+            "pokemonName": choosenName,
+            "pokemonNumber": choosenNumber
         ]
         UserDefaults.standard.set(settingsDictionary, forKey: "settings")
     }
@@ -82,7 +84,8 @@ extension InitialVC: UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         getPokemons(firstID: pokemons[row].firstEvolution.number, secondID: pokemons[row].secondEvolution.number, thirdID: pokemons[row].thirdEvolution.number)
-        choosen = pokemons[row]
+        choosenName = pokemons[row].firstEvolution.name
+        choosenNumber = pokemons[row].firstEvolution.number
     }
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         var pickerLabel: UILabel? = (view as? UILabel)

@@ -9,6 +9,7 @@ import UIKit
 
 class MainVC: UIViewController {
 
+    @IBOutlet weak var returnView: UIView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var pokemonLabel: UILabel!
     @IBOutlet weak var evolutionLabel: UILabel!
@@ -16,13 +17,14 @@ class MainVC: UIViewController {
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var progressView: UIProgressView!
     
-    
+    var evolutionNumer = 1
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setGradientBackground()
         loadSettings()
+        returnView.layer.cornerRadius = 25
         
     }
     
@@ -30,14 +32,15 @@ class MainVC: UIViewController {
         guard
             let settings = UserDefaults.standard.dictionary(forKey: "settings"),
             let username = settings["username"] as? String,
-            let pokemon = settings["pokemon"] as? Pokemon
-       else { return }
+            let pokemonName = settings["pokemonName"] as? String,
+            let pokemonNumber = settings["pokemonNumber"] as? Int
+       else { print("failed"); return }
        nameLabel.text = username
-       pokemonLabel.text = pokemon.firstEvolution.name
-       evolutionLabel.text = "Evolution \(1)"
-       pokemonImageView.loadFrom(urlAdress: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/\(pokemon.firstEvolution.number).png")
-                
+       pokemonLabel.text = pokemonName
+       evolutionLabel.text = "Evolution \(evolutionNumer)"
+       pokemonImageView.loadFrom(urlAdress: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/\(pokemonNumber).png")
     }
-    
 }
+
+
 
