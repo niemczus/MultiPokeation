@@ -36,6 +36,7 @@
 		32CD42F627EF298400EF03D1 /* MontserratAlternates-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 32CD42E327EF298400EF03D1 /* MontserratAlternates-SemiBold.ttf */; };
 		32CD42F727EF298400EF03D1 /* MontserratAlternates-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 32CD42E427EF298400EF03D1 /* MontserratAlternates-ExtraBold.ttf */; };
 		32CD42F827EF298400EF03D1 /* MontserratAlternates-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 32CD42E527EF298400EF03D1 /* MontserratAlternates-SemiBoldItalic.ttf */; };
+		32D1512127F1DD6C0010415E /* TrainingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D1512027F1DD6C0010415E /* TrainingVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		32CD42E327EF298400EF03D1 /* MontserratAlternates-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MontserratAlternates-SemiBold.ttf"; sourceTree = "<group>"; };
 		32CD42E427EF298400EF03D1 /* MontserratAlternates-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MontserratAlternates-ExtraBold.ttf"; sourceTree = "<group>"; };
 		32CD42E527EF298400EF03D1 /* MontserratAlternates-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MontserratAlternates-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		32D1512027F1DD6C0010415E /* TrainingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 				3284A41927EDD4370036C650 /* Pokemons.swift */,
 				32CD42D027EF1E1100EF03D1 /* MainVC.swift */,
 				32CD42D227EF298400EF03D1 /* Montserrat_Alternates */,
+				32D1512027F1DD6C0010415E /* TrainingVC.swift */,
 			);
 			path = MultiPokeation;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32D1512127F1DD6C0010415E /* TrainingVC.swift in Sources */,
 				328D24E327E8BF7300E8EF83 /* MultiPokeation.xcdatamodeld in Sources */,
 				328D24DD27E8BF7300E8EF83 /* InitialVC.swift in Sources */,
 				3284A41A27EDD4370036C650 /* Pokemons.swift in Sources */,

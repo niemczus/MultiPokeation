@@ -9,7 +9,6 @@ import UIKit
 
 class MainVC: UIViewController {
 
-    @IBOutlet weak var returnView: UIView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var pokemonLabel: UILabel!
     @IBOutlet weak var evolutionLabel: UILabel!
@@ -24,7 +23,6 @@ class MainVC: UIViewController {
         super.viewDidLoad()
         setGradientBackground()
         loadSettings()
-        returnView.layer.cornerRadius = 25
         
     }
     
@@ -33,11 +31,12 @@ class MainVC: UIViewController {
             let settings = UserDefaults.standard.dictionary(forKey: "settings"),
             let username = settings["username"] as? String,
             let pokemonName = settings["pokemonName"] as? String,
-            let pokemonNumber = settings["pokemonNumber"] as? Int
+            let pokemonNumber = settings["pokemonNumber"] as? Int,
+            let pokemonEvolution = settings["pokemonEvolution"] as? Int
        else { print("failed"); return }
        nameLabel.text = username
        pokemonLabel.text = pokemonName
-       evolutionLabel.text = "Evolution \(evolutionNumer)"
+       evolutionLabel.text = "Evolution \(pokemonEvolution)"
        pokemonImageView.loadFrom(urlAdress: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/\(pokemonNumber).png")
     }
 }

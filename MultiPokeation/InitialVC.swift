@@ -19,6 +19,7 @@ class InitialVC: UIViewController {
     
     var choosenName = pokemons[0].firstEvolution.name
     var choosenNumber = pokemons[0].firstEvolution.number
+    var evolution = 1
     
     
     
@@ -55,7 +56,8 @@ class InitialVC: UIViewController {
         let settingsDictionary: [String: Any?] = [
             "username": nameTextField.text,
             "pokemonName": choosenName,
-            "pokemonNumber": choosenNumber
+            "pokemonNumber": choosenNumber,
+            "pokemonEvolution": evolution
         ]
         UserDefaults.standard.set(settingsDictionary, forKey: "settings")
     }
@@ -70,7 +72,6 @@ extension InitialVC: UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         pokemons.count
     }
-   
 }
 
 extension InitialVC: UITextFieldDelegate {
@@ -94,7 +95,7 @@ extension InitialVC: UIPickerViewDelegate {
             pickerLabel?.font = UIFont(name: "MontserratAlternates-Regular", size: 25)
             pickerLabel?.textAlignment = .center
         }
-            pickerLabel?.text = "\(pokemons[row].secondEvolution.name)"
+            pickerLabel?.text = "\(pokemons[row].firstEvolution.name)"
             pickerLabel?.textColor = UIColor(named: "orange")
             
             return pickerLabel!

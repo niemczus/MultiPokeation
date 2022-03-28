@@ -17,6 +17,7 @@ struct Pokemon {
 struct Details {
     let name: String
     let number: Int
+    let evolution: Int = 1
 }
 
 let pokemons = [
