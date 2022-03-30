@@ -19,12 +19,26 @@ class InitialVC: UIViewController {
     
     var choosenName = pokemons[0].firstEvolution.name
     var choosenNumber = pokemons[0].firstEvolution.number
-    var evolution = 1
+    var evolutionNumber = 1
+    var score = 0
+    var firstChoose = "first"
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        DispatchQueue.main.async {
+//            if UserDefaults.standard.bool(forKey: "firstChoose") == false {
+//               
+//                self.pushVC(storyboardName: "Main", vcName: "MainVC")
+//            }
+//        }
+//        
+//        print(firstChoose)
+//        isFirst()
+        
+     
+        
         nameTextField.delegate = self
         picker.dataSource = self
         picker.delegate = self
@@ -42,6 +56,7 @@ class InitialVC: UIViewController {
     }
     
     @IBAction func confirmButton(_ sender: UIButton) {
+        firstChoose = "another"
         saveSettings()
     }
     
@@ -53,15 +68,31 @@ class InitialVC: UIViewController {
     }
     
     func saveSettings() {
-        let settingsDictionary: [String: Any?] = [
-            "username": nameTextField.text,
-            "pokemonName": choosenName,
-            "pokemonNumber": choosenNumber,
-            "pokemonEvolution": evolution
-        ]
-        UserDefaults.standard.set(settingsDictionary, forKey: "settings")
+        let ud = UserDefaults.standard
+        
+//        let settingsDictionary: [String: Any?] = [
+//            "username": nameTextField.text,
+//            "pokemonName": choosenName,
+//            "pokemonNumber": choosenNumber,
+//            "pokemonEvolution": evolution,
+//            "score": score
+//        ]
+//        ud.set(settingsDictionary, forKey: "settings")
+        
+        ud.set(nameTextField.text, forKey: "username")
+        ud.set(choosenName, forKey: "pokemonName")
+        ud.set(choosenNumber, forKey: "pokemonNumber")
+        ud.set(firstChoose, forKey: "firstChoose")
+        ud.set(evolutionNumber, forKey: "evolutionNumber")
     }
+//    func isFirst() {
+//        if firstChoose == false {
+//            self.pushVC(storyboardName: "Main", vcName: "MainVC")
+//        }
+//    }
 }
+
+
 
 
 extension InitialVC: UIPickerViewDataSource {
@@ -142,5 +173,13 @@ extension UIViewController {
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(self.view.endEditing(_:)))
         tap.cancelsTouchesInView = false
         return tap
+    }
+}
+
+extension UIViewController {
+    func pushVC(storyboardName: String, vcName: String) {
+        let vc = UIStoryboard.init(name: storyboardName, bundle: .main).instantiateViewController(withIdentifier: vcName)
+        vc.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

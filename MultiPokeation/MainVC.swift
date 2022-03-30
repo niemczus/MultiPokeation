@@ -16,28 +16,47 @@ class MainVC: UIViewController {
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var progressView: UIProgressView!
     
-    var evolutionNumer = 1
+    var username = "None"
+    var pokemonName = "None"
+    var evolutionNumber = 1
+    var pokemonNumber = 0
+    var score = 0
+   
+   
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setGradientBackground()
-        loadSettings()
+        DispatchQueue.main.async {
+            self.loadSettings()
+            self.changeUI()
+        }
+        
+        
         
     }
     
+    @IBAction func didTapRestartButton(_ sender: UIButton) {
+        performSegue(withIdentifier: "fromMainVCToInitialVC", sender: .none)
+        UserDefaults.standard.set("another", forKey: "firstChoose")
+    }
+    
    func loadSettings() {
-        guard
-            let settings = UserDefaults.standard.dictionary(forKey: "settings"),
-            let username = settings["username"] as? String,
-            let pokemonName = settings["pokemonName"] as? String,
-            let pokemonNumber = settings["pokemonNumber"] as? Int,
-            let pokemonEvolution = settings["pokemonEvolution"] as? Int
-       else { print("failed"); return }
-       nameLabel.text = username
-       pokemonLabel.text = pokemonName
-       evolutionLabel.text = "Evolution \(pokemonEvolution)"
-       pokemonImageView.loadFrom(urlAdress: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/\(pokemonNumber).png")
+       username = UserDefaults.standard.string(forKey: "username") ?? "Error"
+       pokemonName = UserDefaults.standard.string(forKey: "pokemonName") ?? "Error"
+       evolutionNumber = UserDefaults.standard.integer(forKey: "evolutionNumber")
+       pokemonNumber = UserDefaults.standard.integer(forKey: "pokemonNumber")
+       score = UserDefaults.standard.integer(forKey: "score")
+    }
+    
+    func changeUI() {
+        nameLabel.text = username
+        pokemonLabel.text = pokemonName
+        evolutionLabel.text = "Evolution \(evolutionNumber)"
+        pokemonImageView.loadFrom(urlAdress: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/\(pokemonNumber).png")
+        scoreLabel.text = "Score: \(String(score))"
+        progressView.setProgress(Float(score)/100, animated: true)
     }
 }
 

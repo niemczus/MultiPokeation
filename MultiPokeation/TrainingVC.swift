@@ -15,12 +15,12 @@ class TrainingVC: UIViewController {
     @IBOutlet weak var numberTwoLabel: UILabel!
     @IBOutlet weak var answetTextField: UITextField!
     
-    var score: Float = 0
+    var score = 0
     var questionCounter = 1
     var correctAnser: Int?
     var userAnswer: Int?
     
-    var pokemonEvolution: Int = 1
+    var evolutionNumber: Int = 1
     var level = [2, 4, 7, 10]
     
     var numberOne: Int?
@@ -29,6 +29,7 @@ class TrainingVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadSettings()
+        progressView.setProgress(Float(score)/100, animated: true)
         setupHideKeyboardOnTap()
         setGradientBackground()
         quest()
@@ -36,26 +37,52 @@ class TrainingVC: UIViewController {
     
     @IBAction func didTapCheckButton(_ sender: UIButton) {
         checkAnswer()
+        print(score)
+        progressView.setProgress(Float(score)/100, animated: true)
+        print(progressView.progress)
         checkEvolution()
         endTraining()
     }
     
+    @IBAction func didTapQuitTrainingButton(_ sender: UIButton) {
+        performSegue(withIdentifier: "sequeTrainingVCToMainVC", sender: .none)
+        saveSettings()
+    }
     func quest() {
-        let first = Int.random(in: 2...level[pokemonEvolution])
-        let second = Int.random(in: 2...level[pokemonEvolution])
+        let first = Int.random(in: 2...level[evolutionNumber])
+        let second = Int.random(in: 2...level[evolutionNumber])
         numberOneLabel.text = String("\(first)")
         numberTwoLabel.text = String("\(second)")
         correctAnser = first * second
     }
     
     func checkAnswer() {
+        userAnswer = Int(answetTextField.text!) ?? 0
         if userAnswer == correctAnser {
-            score += 0.05
-        } else if score >= 0.03 {
-            score -= 0.03
+            correctAlert()
+            score += 5
+        } else {
+            if score >= 3 {
+            wrongAlert()
+            score -= 3
+            }
         }
-        progressView.progress = score
+        
         answetTextField.text = nil
+    }
+    
+    func correctAlert() {
+        let alert = UIAlertController(title: "Correct 🥳", message: "+5 points to evolution", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Next quest", style: .default)
+        alert.addAction(action)
+        present(alert, animated: true)
+    }
+    
+    func wrongAlert() {
+        let alert = UIAlertController(title: "Upps.. wrong 🤤", message: "-3 points to evolution", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Next quest", style: .default)
+        alert.addAction(action)
+        present(alert, animated: true)
     }
     
     func checkEvolution() {
@@ -66,17 +93,22 @@ class TrainingVC: UIViewController {
     }
     func endTraining() {
         questionCounter += 1
+        questNumberLabel.text = ("\(questionCounter)")
         if questionCounter < 10 {
             quest()
-        } else { performSegue(withIdentifier: "sequeToMainVC", sender: nil) }
+        } else {
+            saveSettings()
+            performSegue(withIdentifier: "sequeToMainVC", sender: nil) }
     }
     
     
     func loadSettings() {
-        guard
-            let settings = UserDefaults.standard.dictionary(forKey: "settings"),
-            let pokemonEvolution = settings["pokemonEvolution"] as? Int
-        else { print("failed"); return }
-        self.pokemonEvolution = pokemonEvolution
+        evolutionNumber = UserDefaults.standard.integer(forKey: "evolutionNumber")
+        score = UserDefaults.standard.integer(forKey: "score")
     }
+    
+    func saveSettings() {
+        UserDefaults.standard.set(score, forKey: "score")
+    }
+    
 }

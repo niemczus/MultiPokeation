@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aH7-XL-6hb">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -22,7 +22,7 @@
         <!--InitialVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="InitialVC" customModule="MultiPokeation" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InitialVC" id="BYZ-38-t0r" customClass="InitialVC" customModule="MultiPokeation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -98,7 +98,7 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="confirmButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yug-FR-6Yo"/>
-                                    <segue destination="P98-br-nWC" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="39i-6g-JWd"/>
+                                    <segue destination="P98-br-nWC" kind="presentation" identifier="fromInitialtoMain" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="39i-6g-JWd"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -119,6 +119,7 @@
                             <constraint firstItem="Ebj-UP-9Qm" firstAttribute="top" secondItem="PN2-uD-6uj" secondAttribute="bottom" constant="20" id="zQR-io-RGg"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="i6u-dz-Fxd"/>
                     <connections>
                         <outlet property="firstEvolutionImageView" destination="cTf-gT-6oY" id="jhy-8Y-u30"/>
                         <outlet property="nameTextField" destination="t1k-bk-thG" id="6b5-sy-X0g"/>
@@ -129,12 +130,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-23.199999999999999" y="77.58620689655173"/>
+            <point key="canvasLocation" x="919.20000000000005" y="77.58620689655173"/>
         </scene>
         <!--MainVC-->
         <scene sceneID="cfI-dZ-OKw">
             <objects>
-                <viewController id="P98-br-nWC" customClass="MainVC" customModule="MultiPokeation" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainVC" id="P98-br-nWC" customClass="MainVC" customModule="MultiPokeation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VMk-ZX-eqt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -231,7 +232,8 @@
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="partialCurl" id="4Zb-IZ-Ulr"/>
+                                    <action selector="didTapRestartButton:" destination="P98-br-nWC" eventType="touchUpInside" id="tuU-l9-fPc"/>
+                                    <segue destination="aH7-XL-6hb" kind="presentation" identifier="fromMainVCToInitialVC" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="4Zb-IZ-Ulr"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -269,12 +271,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CW5-Qw-dYv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="772" y="77.58620689655173"/>
+            <point key="canvasLocation" x="1714.4000000000001" y="77.58620689655173"/>
         </scene>
         <!--TrainingVC-->
         <scene sceneID="nUb-Cl-dxI">
             <objects>
-                <viewController id="uO3-EZ-NYC" customClass="TrainingVC" customModule="MultiPokeation" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TrainingVC" id="uO3-EZ-NYC" customClass="TrainingVC" customModule="MultiPokeation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ww6-AS-hrc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -295,7 +297,8 @@
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="P98-br-nWC" kind="presentation" identifier="sequeToMainVC" modalPresentationStyle="fullScreen" modalTransitionStyle="partialCurl" id="ime-1q-8qE"/>
+                                    <action selector="didTapQuitTrainingButton:" destination="uO3-EZ-NYC" eventType="touchUpInside" id="udX-DH-tuX"/>
+                                    <segue destination="P98-br-nWC" kind="presentation" identifier="sequeTrainingVCToMainVC" modalPresentationStyle="fullScreen" modalTransitionStyle="partialCurl" id="ime-1q-8qE"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="KQu-te-iam">
@@ -387,7 +390,7 @@
                                         </constraints>
                                         <color key="textColor" red="0.72016161680000002" green="0.66506642100000002" blue="0.76412624119999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="MontserratAlternates-Regular" family="Montserrat Alternates" pointSize="50"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
                                 </subviews>
                             </stackView>
@@ -437,7 +440,54 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5PF-5Y-w4j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1557.5999999999999" y="77.58620689655173"/>
+            <point key="canvasLocation" x="2500" y="77.58620689655173"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="fYy-Ar-8kA">
+            <objects>
+                <viewController id="qvd-Ww-pyy" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fGV-XE-72J">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="gkQ-jq-SHY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GPL-yd-roG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3500" y="474"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="SU7-TT-mDM">
+            <objects>
+                <viewController id="OFb-Io-f0y" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pgj-WJ-vh2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="dtR-Hq-cWR"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mT9-wo-ljM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3500" y="-258"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="cnM-98-h3K">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="aH7-XL-6hb" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4J2-vA-idZ">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="MyI-wI-YGS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eWz-90-TxV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-23.199999999999999" y="77.58620689655173"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
