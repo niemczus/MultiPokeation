@@ -17,6 +17,7 @@ class InitialVC: UIViewController {
     
     @IBOutlet weak var picker: UIPickerView!
     
+    var pokemon = 0
     var choosenName = pokemons[0].firstEvolution.name
     var choosenNumber = pokemons[0].firstEvolution.number
     var evolutionNumber = 1
@@ -84,6 +85,7 @@ class InitialVC: UIViewController {
         ud.set(choosenNumber, forKey: "pokemonNumber")
         ud.set(firstChoose, forKey: "firstChoose")
         ud.set(evolutionNumber, forKey: "evolutionNumber")
+        ud.set(pokemon, forKey: "pokemon")
     }
 //    func isFirst() {
 //        if firstChoose == false {
@@ -118,6 +120,7 @@ extension InitialVC: UIPickerViewDelegate {
         getPokemons(firstID: pokemons[row].firstEvolution.number, secondID: pokemons[row].secondEvolution.number, thirdID: pokemons[row].thirdEvolution.number)
         choosenName = pokemons[row].firstEvolution.name
         choosenNumber = pokemons[row].firstEvolution.number
+        pokemon = row
     }
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         var pickerLabel: UILabel? = (view as? UILabel)
@@ -182,4 +185,5 @@ extension UIViewController {
         vc.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
 }

@@ -9,21 +9,32 @@ import UIKit
 
 class EvolutionVC: UIViewController {
 
+    @IBOutlet weak var pokemonImageView: UIImageView!
+    @IBOutlet weak var pokemonNameLabel: UILabel!
+    
+    var pokemonName = ""
+    var evolutionNumber = 1
+    var pokemonNumber = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func continueButton(_ sender: UIButton) {
+        performSegue(withIdentifier: "segueEvolutionVCToMainVC", sender: .none)
     }
-    */
-
+    
+    func loadSettings() {
+        pokemonName = UserDefaults.standard.string(forKey: "pokemonName") ?? "Error"
+        evolutionNumber = UserDefaults.standard.integer(forKey: "evolutionNumber")
+        pokemonNumber = UserDefaults.standard.integer(forKey: "pokemonNumber")
+     }
+    
+    func changeUI() {
+        pokemonImageView.loadFrom(urlAdress: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/\(pokemonNumber).png")
+        pokemonNameLabel.text = pokemonName
+    }
+    
+    
 }

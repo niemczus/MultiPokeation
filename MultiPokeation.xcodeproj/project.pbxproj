@@ -39,6 +39,7 @@
 		32D1512127F1DD6C0010415E /* TrainingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D1512027F1DD6C0010415E /* TrainingVC.swift */; };
 		32DED84427F4681400C106F8 /* EvolutionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DED84327F4681400C106F8 /* EvolutionVC.swift */; };
 		32DED84627F4689300C106F8 /* SummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DED84527F4689300C106F8 /* SummaryVC.swift */; };
+		32DED84827F4912500C106F8 /* Statics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DED84727F4912500C106F8 /* Statics.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +76,7 @@
 		32D1512027F1DD6C0010415E /* TrainingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingVC.swift; sourceTree = "<group>"; };
 		32DED84327F4681400C106F8 /* EvolutionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvolutionVC.swift; sourceTree = "<group>"; };
 		32DED84527F4689300C106F8 /* SummaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryVC.swift; sourceTree = "<group>"; };
+		32DED84727F4912500C106F8 /* Statics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statics.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 				328D24E927E8BF7400E8EF83 /* Info.plist */,
 				328D24E127E8BF7300E8EF83 /* MultiPokeation.xcdatamodeld */,
 				3284A41927EDD4370036C650 /* Pokemons.swift */,
+				32DED84727F4912500C106F8 /* Statics.swift */,
 				32CD42D227EF298400EF03D1 /* Montserrat_Alternates */,
 			);
 			path = MultiPokeation;
@@ -255,6 +258,7 @@
 				3284A41A27EDD4370036C650 /* Pokemons.swift in Sources */,
 				328D24D927E8BF7300E8EF83 /* AppDelegate.swift in Sources */,
 				32CD42D127EF1E1100EF03D1 /* MainVC.swift in Sources */,
+				32DED84827F4912500C106F8 /* Statics.swift in Sources */,
 				32DED84627F4689300C106F8 /* SummaryVC.swift in Sources */,
 				328D24DB27E8BF7300E8EF83 /* SceneDelegate.swift in Sources */,
 			);

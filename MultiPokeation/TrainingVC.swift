@@ -20,6 +20,8 @@ class TrainingVC: UIViewController {
     var correctAnser: Int?
     var userAnswer: Int?
     
+    var pokemonName = ""
+    var pokemonNumber = 0
     var evolutionNumber: Int = 1
     var level = [2, 4, 7, 10]
     
@@ -63,8 +65,8 @@ class TrainingVC: UIViewController {
             score += 5
         } else {
             if score >= 3 {
-            wrongAlert()
-            score -= 3
+                wrongAlert()
+                score -= 3
             }
         }
         
@@ -86,11 +88,22 @@ class TrainingVC: UIViewController {
     }
     
     func checkEvolution() {
-        if score >= 100 {
-            print("evolution")
-            //segue to evolution scree?
+        if score >= 10 && evolutionNumber < 3 {
+            evolutionNumber += 1
+            if evolutionNumber == 2 {
+                pokemonName = pokemons[Int(S.pokemon) ?? 0].secondEvolution.name
+                pokemonNumber = pokemons[Int(S.pokemon) ?? 0].secondEvolution.number
+            } else if evolutionNumber == 3 {
+                pokemonName = pokemons[Int(S.pokemon) ?? 0].thirdEvolution.name
+                pokemonNumber = pokemons[Int(S.pokemon) ?? 0].thirdEvolution.number
+            }
+            saveSettings()
+            performSegue(withIdentifier: "segueFromTrainingVCToEvolutionVC", sender: .none)
+        }  else if score >= 100 && evolutionNumber == 3 {
+            performSegue(withIdentifier: "segueFromTrainingVCToSummaryVC", sender: .none)
         }
     }
+    
     func endTraining() {
         questionCounter += 1
         questNumberLabel.text = ("\(questionCounter)")
@@ -98,17 +111,22 @@ class TrainingVC: UIViewController {
             quest()
         } else {
             saveSettings()
-            performSegue(withIdentifier: "sequeToMainVC", sender: nil) }
+            performSegue(withIdentifier: "sequeTrainingVCToMainVC", sender: nil) }
     }
     
     
     func loadSettings() {
         evolutionNumber = UserDefaults.standard.integer(forKey: "evolutionNumber")
         score = UserDefaults.standard.integer(forKey: "score")
+        pokemonName = UserDefaults.standard.string(forKey: S.pokemonName) ?? "Error"
+        pokemonNumber = UserDefaults.standard.integer(forKey: S.pokemonNumber)
     }
     
     func saveSettings() {
         UserDefaults.standard.set(score, forKey: "score")
+        UserDefaults.standard.set(evolutionNumber, forKey: "evolutionNumber")
+        UserDefaults.standard.set(pokemonName, forKey: S.pokemonName)
+        UserDefaults.standard.set(pokemonNumber, forKey: S.pokemonNumber)
     }
     
 }
