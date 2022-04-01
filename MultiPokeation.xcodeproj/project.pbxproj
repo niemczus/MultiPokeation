@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3269CCCC27F7206B009B73B2 /* CollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3269CCCB27F7206B009B73B2 /* CollectionVC.swift */; };
 		3284A41827EDC63D0036C650 /* PokemonAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 3284A41727EDC63D0036C650 /* PokemonAPI */; };
 		3284A41A27EDD4370036C650 /* Pokemons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3284A41927EDD4370036C650 /* Pokemons.swift */; };
 		328D24D927E8BF7300E8EF83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328D24D827E8BF7300E8EF83 /* AppDelegate.swift */; };
@@ -43,6 +44,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3269CCCB27F7206B009B73B2 /* CollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionVC.swift; sourceTree = "<group>"; };
 		3284A41927EDD4370036C650 /* Pokemons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemons.swift; sourceTree = "<group>"; };
 		328D24D527E8BF7300E8EF83 /* MultiPokeation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiPokeation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		328D24D827E8BF7300E8EF83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				32D1512027F1DD6C0010415E /* TrainingVC.swift */,
 				32DED84327F4681400C106F8 /* EvolutionVC.swift */,
 				32DED84527F4689300C106F8 /* SummaryVC.swift */,
+				3269CCCB27F7206B009B73B2 /* CollectionVC.swift */,
 				328D24DE27E8BF7300E8EF83 /* Main.storyboard */,
 				328D24E427E8BF7400E8EF83 /* Assets.xcassets */,
 				328D24E627E8BF7400E8EF83 /* LaunchScreen.storyboard */,
@@ -253,6 +256,7 @@
 			files = (
 				32D1512127F1DD6C0010415E /* TrainingVC.swift in Sources */,
 				328D24E327E8BF7300E8EF83 /* MultiPokeation.xcdatamodeld in Sources */,
+				3269CCCC27F7206B009B73B2 /* CollectionVC.swift in Sources */,
 				32DED84427F4681400C106F8 /* EvolutionVC.swift in Sources */,
 				328D24DD27E8BF7300E8EF83 /* InitialVC.swift in Sources */,
 				3284A41A27EDD4370036C650 /* Pokemons.swift in Sources */,

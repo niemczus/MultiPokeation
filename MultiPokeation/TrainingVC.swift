@@ -23,6 +23,7 @@ class TrainingVC: UIViewController {
     
     var pokemonName = ""
     var pokemonNumber = 0
+    var pokemon = 0
     var evolutionNumber: Int = 1
     var level = [2, 4, 7, 10]
     
@@ -94,11 +95,11 @@ class TrainingVC: UIViewController {
         if score >= 10 && evolutionNumber < 3 {
             evolutionNumber += 1
             if evolutionNumber == 2 {
-                pokemonName = pokemons[Int(S.pokemon) ?? 0].secondEvolution.name
-                pokemonNumber = pokemons[Int(S.pokemon) ?? 0].secondEvolution.number
+                pokemonName = pokemons[Int(pokemon) ].secondEvolution.name
+                pokemonNumber = pokemons[Int(pokemon) ].secondEvolution.number
             } else  {
-                pokemonName = pokemons[Int(S.pokemon) ?? 0].thirdEvolution.name
-                pokemonNumber = pokemons[Int(S.pokemon) ?? 0].thirdEvolution.number
+                pokemonName = pokemons[Int(pokemon) ].thirdEvolution.name
+                pokemonNumber = pokemons[Int(pokemon) ].thirdEvolution.number
             }
             saveSettings()
             performSegue(withIdentifier: "segueFromTrainingVCToEvolutionVC", sender: .none)
@@ -123,6 +124,7 @@ class TrainingVC: UIViewController {
         score = UserDefaults.standard.integer(forKey: "score")
         pokemonName = UserDefaults.standard.string(forKey: S.pokemonName) ?? "Error"
         pokemonNumber = UserDefaults.standard.integer(forKey: S.pokemonNumber)
+        pokemon = UserDefaults.standard.integer(forKey: S.pokemon)
     }
     
     func saveSettings() {
