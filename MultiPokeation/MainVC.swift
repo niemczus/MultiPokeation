@@ -27,7 +27,8 @@ class MainVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setGradientBackground()
+        setGradientBackground(colorTop: UIColor(red: 83/255, green: 62/255, blue: 133/255, alpha: 1).cgColor, colorBottom: UIColor(red: 162/255, green: 213/255, blue: 171/255, alpha: 1).cgColor)
+       
         DispatchQueue.main.async {
             self.loadSettings()
             self.changeUI()
@@ -39,7 +40,6 @@ class MainVC: UIViewController {
     
     @IBAction func didTapRestartButton(_ sender: UIButton) {
         performSegue(withIdentifier: "fromMainVCToInitialVC", sender: .none)
-        UserDefaults.standard.set("another", forKey: "firstChoose")
     }
     
    func loadSettings() {

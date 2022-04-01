@@ -18,6 +18,9 @@ class EvolutionVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadSettings()
+        setGradientBackground(colorTop: UIColor(red: 242/255, green: 74/255, blue: 114/255, alpha: 1).cgColor, colorBottom: UIColor(red: 162/255, green: 213/255, blue: 171/255, alpha: 1).cgColor)
+        changeUI()
     }
     
     
@@ -26,9 +29,9 @@ class EvolutionVC: UIViewController {
     }
     
     func loadSettings() {
-        pokemonName = UserDefaults.standard.string(forKey: "pokemonName") ?? "Error"
-        evolutionNumber = UserDefaults.standard.integer(forKey: "evolutionNumber")
-        pokemonNumber = UserDefaults.standard.integer(forKey: "pokemonNumber")
+        pokemonName = UserDefaults.standard.string(forKey: S.pokemonName) ?? "error"
+        evolutionNumber = UserDefaults.standard.integer(forKey: S.evolutionNumber)
+        pokemonNumber = UserDefaults.standard.integer(forKey: S.pokemonNumber)
      }
     
     func changeUI() {

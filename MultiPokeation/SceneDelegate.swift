@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if firstChoose == "another" {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: .main)
         let navigationController = mainStoryboard.instantiateViewController(withIdentifier: "MainVC")
-        
+
         window?.rootViewController = navigationController
         }
         

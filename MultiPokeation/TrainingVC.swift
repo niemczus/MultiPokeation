@@ -14,6 +14,7 @@ class TrainingVC: UIViewController {
     @IBOutlet weak var numberOneLabel: UILabel!
     @IBOutlet weak var numberTwoLabel: UILabel!
     @IBOutlet weak var answetTextField: UITextField!
+    @IBOutlet weak var checkButtonBottomConstraint: NSLayoutConstraint!
     
     var score = 0
     var questionCounter = 1
@@ -31,9 +32,10 @@ class TrainingVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadSettings()
+        addObservers()
         progressView.setProgress(Float(score)/100, animated: true)
         setupHideKeyboardOnTap()
-        setGradientBackground()
+        setGradientBackground(colorTop: UIColor(red: 21/255, green: 114/255, blue: 161/255, alpha: 1).cgColor, colorBottom: UIColor(red: 162/255, green: 213/255, blue: 171/255, alpha: 1).cgColor)
         quest()
     }
     
@@ -42,7 +44,6 @@ class TrainingVC: UIViewController {
         print(score)
         progressView.setProgress(Float(score)/100, animated: true)
         print(progressView.progress)
-        checkEvolution()
         endTraining()
     }
     
@@ -75,7 +76,9 @@ class TrainingVC: UIViewController {
     
     func correctAlert() {
         let alert = UIAlertController(title: "Correct 🥳", message: "+5 points to evolution", preferredStyle: .alert)
-        let action = UIAlertAction(title: "Next quest", style: .default)
+        let action = UIAlertAction(title: "Next quest", style: .default) { (_) in
+            self.checkEvolution()
+        }
         alert.addAction(action)
         present(alert, animated: true)
     }
@@ -93,7 +96,7 @@ class TrainingVC: UIViewController {
             if evolutionNumber == 2 {
                 pokemonName = pokemons[Int(S.pokemon) ?? 0].secondEvolution.name
                 pokemonNumber = pokemons[Int(S.pokemon) ?? 0].secondEvolution.number
-            } else if evolutionNumber == 3 {
+            } else  {
                 pokemonName = pokemons[Int(S.pokemon) ?? 0].thirdEvolution.name
                 pokemonNumber = pokemons[Int(S.pokemon) ?? 0].thirdEvolution.number
             }
@@ -129,4 +132,74 @@ class TrainingVC: UIViewController {
         UserDefaults.standard.set(pokemonNumber, forKey: S.pokemonNumber)
     }
     
+    func addObservers() {
+
+        // Subscribe to Keyboard Will Show notifications
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillShow(_:)),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
+
+        // Subscribe to Keyboard Will Hide notifications
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillHide(_:)),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil
+        )
+    }
+
+    @objc dynamic func keyboardWillShow(_ notification: NSNotification) {
+
+        animateWithKeyboard(notification: notification) { keyboardFrame in
+            let constant = keyboardFrame.height - 20
+            self.checkButtonBottomConstraint.constant = constant
+        }
+        self.view.layoutIfNeeded()
+    }
+
+    @objc func keyboardWillHide(_ notification: NSNotification) {
+        animateWithKeyboard(notification: notification) { keyboardframe in
+            self.checkButtonBottomConstraint.constant = 0
+        }
+    }
+
 }
+extension TrainingVC {
+    func animateWithKeyboard(
+        notification: NSNotification,
+        animations: ((_ keyboardFrame: CGRect) -> Void)?
+    ) {
+        // Extract the duration of the keyboard animation
+        let durationKey = UIResponder.keyboardAnimationDurationUserInfoKey
+        let duration = notification.userInfo![durationKey] as! Double
+
+        // Extract the final frame of the keyboard
+        let frameKey = UIResponder.keyboardFrameEndUserInfoKey
+        let keyboardFrameValue = notification.userInfo![frameKey] as! NSValue
+
+        // Extract the curve of the iOS keyboard animation
+        let curveKey = UIResponder.keyboardAnimationCurveUserInfoKey
+        let curveValue = notification.userInfo![curveKey] as! Int
+        let curve = UIView.AnimationCurve(rawValue: curveValue)!
+
+        // Create a property animator to manage the animation
+        let animator = UIViewPropertyAnimator(
+            duration: duration,
+            curve: curve
+        ) {
+            // Perform the necessary animation layout updates
+            animations?(keyboardFrameValue.cgRectValue)
+
+            // Required to trigger NSLayoutConstraint changes
+            // to animate
+            self.view?.layoutIfNeeded()
+        }
+
+        // Start the animation
+        animator.startAnimation()
+    }
+}
+

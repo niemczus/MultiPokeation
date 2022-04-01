@@ -28,17 +28,6 @@ class InitialVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        DispatchQueue.main.async {
-//            if UserDefaults.standard.bool(forKey: "firstChoose") == false {
-//               
-//                self.pushVC(storyboardName: "Main", vcName: "MainVC")
-//            }
-//        }
-//        
-//        print(firstChoose)
-//        isFirst()
-        
-     
         
         nameTextField.delegate = self
         picker.dataSource = self
@@ -48,7 +37,9 @@ class InitialVC: UIViewController {
         thirdEvolutionImageView.layer.cornerRadius = 15
         
         setupHideKeyboardOnTap()
-        setGradientBackground()
+        setGradientBackground(colorTop: UIColor(red: 113/255, green: 43/255, blue: 117/255, alpha: 1).cgColor, colorBottom: UIColor(red: 162/255, green: 213/255, blue: 171/255, alpha: 1).cgColor)
+        //        let colorTop =  UIColor(red: 57.0/255.0, green: 174.0/255.0, blue: 169/255.0, alpha: 1.0).cgColor
+        //        let colorBottom = UIColor(red: 162.0/255.0, green: 213.0/255.0, blue: 171.0/255.0, alpha: 1.0).cgColor
         getPokemons(firstID: pokemons[0].firstEvolution.number, secondID: pokemons[0].secondEvolution.number, thirdID: pokemons[0].thirdEvolution.number)
     }
     
@@ -71,27 +62,14 @@ class InitialVC: UIViewController {
     func saveSettings() {
         let ud = UserDefaults.standard
         
-//        let settingsDictionary: [String: Any?] = [
-//            "username": nameTextField.text,
-//            "pokemonName": choosenName,
-//            "pokemonNumber": choosenNumber,
-//            "pokemonEvolution": evolution,
-//            "score": score
-//        ]
-//        ud.set(settingsDictionary, forKey: "settings")
-        
         ud.set(nameTextField.text, forKey: "username")
         ud.set(choosenName, forKey: "pokemonName")
         ud.set(choosenNumber, forKey: "pokemonNumber")
         ud.set(firstChoose, forKey: "firstChoose")
         ud.set(evolutionNumber, forKey: "evolutionNumber")
         ud.set(pokemon, forKey: "pokemon")
+        ud.set(score, forKey: "score")
     }
-//    func isFirst() {
-//        if firstChoose == false {
-//            self.pushVC(storyboardName: "Main", vcName: "MainVC")
-//        }
-//    }
 }
 
 
@@ -151,9 +129,15 @@ extension UIImageView {
 }
 
 extension UIViewController {
-    func setGradientBackground() {
-        let colorTop =  UIColor(red: 57.0/255.0, green: 174.0/255.0, blue: 169/255.0, alpha: 1.0).cgColor
-        let colorBottom = UIColor(red: 162.0/255.0, green: 213.0/255.0, blue: 171.0/255.0, alpha: 1.0).cgColor
+    struct Color {
+        let red: Int
+        let green: Int
+        
+    }
+    
+    func setGradientBackground(colorTop: CGColor, colorBottom: CGColor) {
+//        let colorTop =  UIColor(red: 57.0/255.0, green: 174.0/255.0, blue: 169/255.0, alpha: 1.0).cgColor
+//        let colorBottom = UIColor(red: 162.0/255.0, green: 213.0/255.0, blue: 171.0/255.0, alpha: 1.0).cgColor
         
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = [colorTop, colorBottom]
