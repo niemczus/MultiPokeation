@@ -14,4 +14,6 @@ struct S {
     static let firstChoose = "firstChoose"
     static let evolutionNumber = "evolutionNumber"
     static let pokemon = "pokemon"
+    static let collectionImages = "collectionImages"
+    static let collectionNames = "collectionNames"
 }

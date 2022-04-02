@@ -22,6 +22,7 @@ class InitialVC: UIViewController {
     var evolutionNumber = 1
     var score = 0
     var firstChoose = "first"
+    var username: String?
     
     
     
@@ -34,11 +35,11 @@ class InitialVC: UIViewController {
         firstEvolutionImageView.layer.cornerRadius = 15
         secondEvolutionImageView.layer.cornerRadius = 15
         thirdEvolutionImageView.layer.cornerRadius = 15
-        
+        loadSettings()
+        nameTextField.text = username
         setupHideKeyboardOnTap()
         setGradientBackground(colorTop: UIColor(red: 113/255, green: 43/255, blue: 117/255, alpha: 1).cgColor, colorBottom: UIColor(red: 162/255, green: 213/255, blue: 171/255, alpha: 1).cgColor)
-        //        let colorTop =  UIColor(red: 57.0/255.0, green: 174.0/255.0, blue: 169/255.0, alpha: 1.0).cgColor
-        //        let colorBottom = UIColor(red: 162.0/255.0, green: 213.0/255.0, blue: 171.0/255.0, alpha: 1.0).cgColor
+        
         getPokemons(firstID: pokemons[0].firstEvolution.number, secondID: pokemons[0].secondEvolution.number, thirdID: pokemons[0].thirdEvolution.number)
     }
     
@@ -56,6 +57,10 @@ class InitialVC: UIViewController {
         firstEvolutionImageView.loadFrom(urlAdress: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/\(firstID).png")
         secondEvolutionImageView.loadFrom(urlAdress: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/\(secondID).png")
         thirdEvolutionImageView.loadFrom(urlAdress: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/\(thirdID).png")
+    }
+    
+    func loadSettings() {
+        username = UserDefaults.standard.string(forKey: S.username)
     }
     
     func saveSettings() {
