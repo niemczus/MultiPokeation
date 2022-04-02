@@ -14,7 +14,6 @@ class InitialVC: UIViewController {
     @IBOutlet weak var firstEvolutionImageView: UIImageView!
     @IBOutlet weak var secondEvolutionImageView: UIImageView!
     @IBOutlet weak var thirdEvolutionImageView: UIImageView!
-    
     @IBOutlet weak var picker: UIPickerView!
     
     var pokemon = 0
@@ -95,10 +94,10 @@ extension InitialVC: UITextFieldDelegate {
 extension InitialVC: UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        getPokemons(firstID: pokemons[row].firstEvolution.number, secondID: pokemons[row].secondEvolution.number, thirdID: pokemons[row].thirdEvolution.number)
-        choosenName = pokemons[row].firstEvolution.name
-        choosenNumber = pokemons[row].firstEvolution.number
-        pokemon = row
+            getPokemons(firstID: pokemons[row].firstEvolution.number, secondID: pokemons[row].secondEvolution.number, thirdID: pokemons[row].thirdEvolution.number)
+            choosenName = pokemons[row].firstEvolution.name
+            choosenNumber = pokemons[row].firstEvolution.number
+            pokemon = row
     }
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         var pickerLabel: UILabel? = (view as? UILabel)

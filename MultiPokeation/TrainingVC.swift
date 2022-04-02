@@ -42,9 +42,9 @@ class TrainingVC: UIViewController {
     
     @IBAction func didTapCheckButton(_ sender: UIButton) {
         checkAnswer()
-        print(score)
+        
         progressView.setProgress(Float(score)/100, animated: true)
-        print(progressView.progress)
+        
         endTraining()
     }
     
@@ -101,9 +101,11 @@ class TrainingVC: UIViewController {
                 pokemonName = pokemons[Int(pokemon) ].thirdEvolution.name
                 pokemonNumber = pokemons[Int(pokemon) ].thirdEvolution.number
             }
+            score = 0
+            questionCounter = 1
             saveSettings()
             performSegue(withIdentifier: "segueFromTrainingVCToEvolutionVC", sender: .none)
-        }  else if score >= 100 && evolutionNumber == 3 {
+        }  else if score >= 10 && evolutionNumber == 3 {
             performSegue(withIdentifier: "segueFromTrainingVCToSummaryVC", sender: .none)
         }
     }

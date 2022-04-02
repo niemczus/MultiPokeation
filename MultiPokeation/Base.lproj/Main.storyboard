@@ -247,7 +247,7 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" cornerStyle="large">
-                                    <backgroundConfiguration key="background" imageContentMode="scaleAspectFit" strokeWidth="4" strokeOutset="3">
+                                    <backgroundConfiguration key="background" imageContentMode="scaleAspectFit" strokeWidth="4" strokeOutset="5">
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <imageReference key="image" image="book.closed.fill" catalog="system" symbolScale="small" renderingMode="hierarchical-single">
                                             <hierarchicalColors>
@@ -303,10 +303,10 @@
             </objects>
             <point key="canvasLocation" x="1714.4000000000001" y="77.58620689655173"/>
         </scene>
-        <!--View Controller-->
+        <!--CollectionVC-->
         <scene sceneID="hqu-2j-GS9">
             <objects>
-                <viewController id="vrt-ur-o9g" sceneMemberID="viewController">
+                <viewController id="vrt-ur-o9g" customClass="CollectionVC" customModule="MultiPokeation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZCA-8q-JWm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -616,20 +616,21 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="mt0-cb-6OJ"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" cornerStyle="large">
-                                    <backgroundConfiguration key="background" imageContentMode="scaleAspectFit" strokeWidth="4" strokeOutset="3">
+                                <buttonConfiguration key="configuration" style="plain" title="" cornerStyle="large">
+                                    <backgroundConfiguration key="background" imageContentMode="scaleAspectFit" strokeWidth="4" strokeOutset="6">
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <imageReference key="image" image="book.closed.fill" catalog="system" symbolScale="small" renderingMode="hierarchical-single">
                                             <hierarchicalColors>
-                                                <color red="0.9983170629" green="0.73196667429999995" blue="0.73419582839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color red="0.4549019608" green="0.21176470589999999" blue="0.47058823529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color systemColor="secondaryLabelColor"/>
                                                 <color systemColor="tertiaryLabelColor"/>
                                             </hierarchicalColors>
                                         </imageReference>
-                                        <color key="strokeColor" red="0.9983170629" green="0.73196667429999995" blue="0.73419582839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="strokeColor" red="0.4549019608" green="0.21176470589999999" blue="0.47058823529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </backgroundConfiguration>
                                 </buttonConfiguration>
                                 <connections>
+                                    <action selector="didTapCollectionButton:" destination="qvd-Ww-pyy" eventType="touchUpInside" id="iWa-Sn-hND"/>
                                     <action selector="didTapQuitTrainingButton:" destination="uO3-EZ-NYC" eventType="touchUpInside" id="Neg-7m-krU"/>
                                     <segue destination="vrt-ur-o9g" kind="presentation" identifier="fromSummaryVCToCollectionVC" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="6QS-g1-WWo"/>
                                 </connections>
@@ -652,6 +653,7 @@
                                     <action selector="confirmButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="R6X-aP-HDw"/>
                                     <action selector="continueButton:" destination="OFb-Io-f0y" eventType="touchUpInside" id="B61-J0-IgJ"/>
                                     <action selector="didTapCheckButton:" destination="uO3-EZ-NYC" eventType="touchUpInside" id="yxQ-wX-avQ"/>
+                                    <action selector="didTapTrainAnotherButton:" destination="qvd-Ww-pyy" eventType="touchUpInside" id="tCi-hZ-t3e"/>
                                     <segue destination="BYZ-38-t0r" kind="presentation" identifier="fromSummaryVCToInitialVC" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="ZLV-IH-yge"/>
                                 </connections>
                             </button>
@@ -685,6 +687,10 @@
                             <constraint firstItem="lqf-Py-MDv" firstAttribute="top" secondItem="Cp5-QE-Sbf" secondAttribute="bottom" id="u3q-wk-JQz"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="pokemonImageView" destination="Cp5-QE-Sbf" id="XZI-mT-Bju"/>
+                        <outlet property="pokemonNameLabel" destination="swq-ne-2y7" id="qUy-2j-YnY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GPL-yd-roG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
