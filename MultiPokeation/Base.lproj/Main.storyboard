@@ -93,7 +93,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Confirm" cornerStyle="capsule">
                                     <backgroundConfiguration key="background">
-                                        <color key="backgroundColor" red="1" green="0.89252251390000004" blue="0.75180900100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="1" green="0.89411764705882346" blue="0.75294117647058822" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </backgroundConfiguration>
                                     <fontDescription key="titleFontDescription" name="MontserratAlternates-Bold" family="Montserrat Alternates" pointSize="20"/>
                                     <color key="baseForegroundColor" systemColor="labelColor"/>
@@ -551,7 +551,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Check" cornerStyle="capsule">
                                     <backgroundConfiguration key="background">
-                                        <color key="backgroundColor" red="0.9983170629" green="0.73196667429999995" blue="0.73419582839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="1" green="0.73333333333333328" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </backgroundConfiguration>
                                     <fontDescription key="titleFontDescription" name="MontserratAlternates-Bold" family="Montserrat Alternates" pointSize="20"/>
                                     <color key="baseForegroundColor" systemColor="labelColor"/>
@@ -822,7 +822,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="qwO-16-O80"/>
-        <segue reference="jL2-Bi-paZ"/>
+        <segue reference="ime-1q-8qE"/>
         <segue reference="ZLV-IH-yge"/>
     </inferredMetricsTieBreakers>
     <resources>
