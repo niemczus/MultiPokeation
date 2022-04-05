@@ -18,19 +18,21 @@ class CollectionVC: UIViewController {
         loadSettings()
         collectionView.delegate = self
         collectionView.dataSource = self
-        setGradientBackground(colorTop: CGColor(red: 33/255, green: 66/255, blue: 82/255, alpha: 1), colorBottom: CGColor(red: 162/255, green: 213/255, blue: 171/255, alpha: 1))
-//        collectionImages.append(12)
-//        collectionImages.append(34)
-//        collectionImages.append(78)
-//        collectionImages.append(72)
-//        collectionImages.append(70)
-//        collectionImages.append(93)
-//        collectionImages.append(93)
-//        collectionImages.append(93)
-//        collectionImages.append(93)
-//        collectionImages.append(93)
-//        collectionImages.append(93)
-
+        setGradientBackground(colorTop: CGColor(red: 156/255, green: 15/255, blue: 72/255, alpha: 1), colorBottom: CGColor(red: 162/255, green: 213/255, blue: 171/255, alpha: 1))
+    }
+    
+    @IBAction func didTapBinButton(_ sender: UIButton) {
+        let alert = UIAlertController(title: "Delete all your collection?", message: .none, preferredStyle: .alert)
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { (_) in
+            self.collectionImages.removeAll()
+            self.collectionNames?.removeAll()
+            UserDefaults.standard.set(self.collectionImages, forKey: S.collectionImages)
+            UserDefaults.standard.set(self.collectionNames, forKey: S.collectionNames)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: .none)
+        alert.addAction(deleteAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true)
     }
     
     func loadSettings() {
@@ -47,7 +49,9 @@ extension CollectionVC: UICollectionViewDelegate, UICollectionViewDataSource, UI
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "pokemonCell", for: indexPath) as? PokemonCell else { return UICollectionViewCell() }
-        cell.populate(number: collectionImages[indexPath.item], name: collectionNames?[indexPath.item] ?? "Pokemon")
+        DispatchQueue.main.async {
+            cell.populate(number: self.collectionImages[indexPath.item], name: self.collectionNames?[indexPath.item] ?? "Pokemon")
+        }
         
         return cell
     }

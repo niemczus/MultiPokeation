@@ -39,8 +39,9 @@ class InitialVC: UIViewController {
         nameTextField.text = username
         setupHideKeyboardOnTap()
         setGradientBackground(colorTop: UIColor(red: 113/255, green: 43/255, blue: 117/255, alpha: 1).cgColor, colorBottom: UIColor(red: 162/255, green: 213/255, blue: 171/255, alpha: 1).cgColor)
-        
-        getPokemons(firstID: pokemons[0].firstEvolution.number, secondID: pokemons[0].secondEvolution.number, thirdID: pokemons[0].thirdEvolution.number)
+        DispatchQueue.main.async {
+            self.getPokemons(firstID: pokemons[0].firstEvolution.number, secondID: pokemons[0].secondEvolution.number, thirdID: pokemons[0].thirdEvolution.number)            
+        }
     }
     
     @IBAction func nameTextView(_ sender: UITextField) {

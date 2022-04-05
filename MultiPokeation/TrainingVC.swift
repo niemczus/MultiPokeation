@@ -18,6 +18,7 @@ class TrainingVC: UIViewController {
     
     var score = 0
     var questionCounter = 1
+    var correctCounter = 0
     var correctAnser: Int?
     var userAnswer: Int?
     
@@ -41,11 +42,11 @@ class TrainingVC: UIViewController {
     }
     
     @IBAction func didTapCheckButton(_ sender: UIButton) {
-        checkAnswer()
-        
-        progressView.setProgress(Float(score)/100, animated: true)
-        
-        endTraining()
+        if answetTextField.text?.isEmpty == false {
+            checkAnswer()
+            progressView.setProgress(Float(score)/100, animated: true)
+//            endTraining()
+        }
     }
     
     @IBAction func didTapQuitTrainingButton(_ sender: UIButton) {
@@ -63,12 +64,16 @@ class TrainingVC: UIViewController {
     func checkAnswer() {
         userAnswer = Int(answetTextField.text!) ?? 0
         if userAnswer == correctAnser {
+            correctCounter += 1
             correctAlert()
             score += 5
+            
         } else {
+            wrongAlert()
             if score >= 3 {
-                wrongAlert()
                 score -= 3
+            } else {
+                score = 0
             }
         }
         
@@ -76,20 +81,42 @@ class TrainingVC: UIViewController {
     }
     
     func correctAlert() {
-        let alert = UIAlertController(title: "Correct 🥳", message: "+5 points to evolution", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Good!😃", message: "+5 Points" , preferredStyle: .alert)
         let action = UIAlertAction(title: "Next quest", style: .default) { (_) in
             self.checkEvolution()
+            self.endTraining()
         }
         alert.addAction(action)
         present(alert, animated: true)
     }
     
     func wrongAlert() {
-        let alert = UIAlertController(title: "Upps.. wrong 🤤", message: "-3 points to evolution", preferredStyle: .alert)
-        let action = UIAlertAction(title: "Next quest", style: .default)
+        var title = ""
+        var message = ""
+        if score >= 3 {
+            title = "Wrong..😐"
+            message = "-3 points"
+        } else {
+            title = "Wrong answer"
+            message = "Try again 😉"
+        }
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "Next quest", style: .default) { (_) in
+            self.endTraining()
+        }
         alert.addAction(action)
         present(alert, animated: true)
     }
+    
+    func summaryAlert() {
+        let alert = UIAlertController(title: "Take a rest!", message: "Correct answers: \(correctCounter) / 10", preferredStyle: .actionSheet)
+        let action = UIAlertAction(title: "Ok", style: .default) { (_) in
+            self.performSegue(withIdentifier: "sequeTrainingVCToMainVC", sender: nil)
+        }
+        alert.addAction(action)
+        present(alert, animated: true)
+    }
+    
     
     func checkEvolution() {
         if score >= 10 && evolutionNumber < 3 {
@@ -107,17 +134,19 @@ class TrainingVC: UIViewController {
             performSegue(withIdentifier: "segueFromTrainingVCToEvolutionVC", sender: .none)
         }  else if score >= 10 && evolutionNumber == 3 {
             performSegue(withIdentifier: "segueFromTrainingVCToSummaryVC", sender: .none)
+            saveSettings()
         }
     }
     
     func endTraining() {
-        questionCounter += 1
-        questNumberLabel.text = ("\(questionCounter)")
         if questionCounter < 10 {
+            questionCounter += 1
+            questNumberLabel.text = ("\(questionCounter)")
             quest()
         } else {
             saveSettings()
-            performSegue(withIdentifier: "sequeTrainingVCToMainVC", sender: nil) }
+            summaryAlert()
+        }
     }
     
     

@@ -39,7 +39,21 @@ class MainVC: UIViewController {
     }
     
     @IBAction func didTapRestartButton(_ sender: UIButton) {
-        performSegue(withIdentifier: "fromMainVCToInitialVC", sender: .none)
+        let alert = UIAlertController(title: "You lose \(pokemonName) training progress ", message: .none, preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: "Confirm", style: .destructive) { (_) in
+            self.performSegue(withIdentifier: "fromMainVCToInitialVC", sender: .none)
+        }
+        let backAction = UIAlertAction(title: "Back", style: .default)
+        alert.addAction(confirmAction)
+        alert.addAction(backAction)
+        present(alert, animated: true)
+    }
+    @IBAction func didTapStartTraining(_ sender: UIButton) {
+        if evolutionNumber == 3 && score >= 10 {
+            restartAlert()
+        } else {
+            performSegue(withIdentifier: "fromMainVCToTrainingVC", sender: .none)
+        }
     }
     
    func loadSettings() {
@@ -55,8 +69,17 @@ class MainVC: UIViewController {
         pokemonLabel.text = pokemonName
         evolutionLabel.text = "Evolution \(evolutionNumber)"
         pokemonImageView.loadFrom(urlAdress: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/\(pokemonNumber).png")
-        scoreLabel.text = "Score: \(String(score))"
+        scoreLabel.text = "Score: \(String(score < 100 ? score : 100))"
         progressView.setProgress(Float(score)/100, animated: true)
+    }
+    
+    func restartAlert() {
+        let alert = UIAlertController(title: "You fully trained \(pokemonName)", message: .none, preferredStyle: .actionSheet)
+        let action = UIAlertAction(title: "Train another", style: .default) { (_) in
+            self.performSegue(withIdentifier: "fromMainVCToInitialVC", sender: .none)
+        }
+        alert.addAction(action)
+        present(alert, animated: true)
     }
 }
 
