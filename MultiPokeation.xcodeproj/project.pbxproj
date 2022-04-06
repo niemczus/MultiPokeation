@@ -95,6 +95,58 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		326A3B5327FD963000F6C523 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3284A41927EDD4370036C650 /* Pokemons.swift */,
+				32DED84727F4912500C106F8 /* Statics.swift */,
+				32340BDB27F8400900AD4809 /* PokemonCell.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		326A3B5427FD963D00F6C523 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				328D24DE27E8BF7300E8EF83 /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		326A3B5527FD964700F6C523 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				328D24D827E8BF7300E8EF83 /* AppDelegate.swift */,
+				328D24DA27E8BF7300E8EF83 /* SceneDelegate.swift */,
+				328D24DC27E8BF7300E8EF83 /* InitialVC.swift */,
+				32CD42D027EF1E1100EF03D1 /* MainVC.swift */,
+				32D1512027F1DD6C0010415E /* TrainingVC.swift */,
+				32DED84327F4681400C106F8 /* EvolutionVC.swift */,
+				32DED84527F4689300C106F8 /* SummaryVC.swift */,
+				3269CCCB27F7206B009B73B2 /* CollectionVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		326A3B5627FD96F600F6C523 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				326A3B5727FD974600F6C523 /* Resources */,
+				328D24E627E8BF7400E8EF83 /* LaunchScreen.storyboard */,
+				328D24E427E8BF7400E8EF83 /* Assets.xcassets */,
+				328D24E127E8BF7300E8EF83 /* MultiPokeation.xcdatamodeld */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		326A3B5727FD974600F6C523 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				32CD42D227EF298400EF03D1 /* Montserrat_Alternates */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		328D24CC27E8BF7300E8EF83 = {
 			isa = PBXGroup;
 			children = (
@@ -114,23 +166,11 @@
 		328D24D727E8BF7300E8EF83 /* MultiPokeation */ = {
 			isa = PBXGroup;
 			children = (
-				328D24D827E8BF7300E8EF83 /* AppDelegate.swift */,
-				328D24DA27E8BF7300E8EF83 /* SceneDelegate.swift */,
-				328D24DC27E8BF7300E8EF83 /* InitialVC.swift */,
-				32CD42D027EF1E1100EF03D1 /* MainVC.swift */,
-				32D1512027F1DD6C0010415E /* TrainingVC.swift */,
-				32DED84327F4681400C106F8 /* EvolutionVC.swift */,
-				32DED84527F4689300C106F8 /* SummaryVC.swift */,
-				3269CCCB27F7206B009B73B2 /* CollectionVC.swift */,
-				328D24DE27E8BF7300E8EF83 /* Main.storyboard */,
-				328D24E427E8BF7400E8EF83 /* Assets.xcassets */,
-				328D24E627E8BF7400E8EF83 /* LaunchScreen.storyboard */,
+				326A3B5327FD963000F6C523 /* Models */,
+				326A3B5427FD963D00F6C523 /* Views */,
+				326A3B5527FD964700F6C523 /* Controllers */,
+				326A3B5627FD96F600F6C523 /* Supporting Files */,
 				328D24E927E8BF7400E8EF83 /* Info.plist */,
-				328D24E127E8BF7300E8EF83 /* MultiPokeation.xcdatamodeld */,
-				3284A41927EDD4370036C650 /* Pokemons.swift */,
-				32DED84727F4912500C106F8 /* Statics.swift */,
-				32CD42D227EF298400EF03D1 /* Montserrat_Alternates */,
-				32340BDB27F8400900AD4809 /* PokemonCell.swift */,
 			);
 			path = MultiPokeation;
 			sourceTree = "<group>";
