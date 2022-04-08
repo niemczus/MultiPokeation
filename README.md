@@ -11,8 +11,8 @@ Below few screenshots of the app.
 I used PokeAPI in this project.
 
 <img src="Images/MultiPokeation1.jpeg" width=150 >
-![CHEESE!](Images/MultiPokeation2.jpeg)
-![CHEESE!](Images/MultiPokeation3.jpeg)
-![CHEESE!](Images/MultiPokeation4.jpeg)
-![CHEESE!](Images/MultiPokeation5.jpeg)
-![CHEESE!](Images/MultiPokeation6.jpeg)
+<img src="Images/MultiPokeation2.jpeg" width=150 >
+<img src="Images/MultiPokeation3.jpeg" width=150 >
+<img src="Images/MultiPokeation4.jpeg" width=150 >
+<img src="Images/MultiPokeation5.jpeg" width=150 >
+<img src="Images/MultiPokeation6.jpeg" width=150 >
