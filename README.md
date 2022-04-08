@@ -10,7 +10,7 @@ He became the first manual tester and was delighted to learn multiply this way.
 Below few screenshots of the app.
 I used PokeAPI in this project.
 
-![CHEESE!](Images/MultiPokeation1.jpeg)
+<img src="Images/MultiPokeation1.jpeg" width=150 >
 ![CHEESE!](Images/MultiPokeation2.jpeg)
 ![CHEESE!](Images/MultiPokeation3.jpeg)
 ![CHEESE!](Images/MultiPokeation4.jpeg)
