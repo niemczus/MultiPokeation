@@ -10,9 +10,9 @@ He became the first manual tester and was delighted to learn multiply this way.
 Below few screenshots of the app.
 I used PokeAPI in this project.
 
-![CHEESE!](Images/Images/MultiPokeation1.png)
-![CHEESE!](Images/Images/MultiPokeation2.png)
-![CHEESE!](Images/Images/MultiPokeation3.png)
-![CHEESE!](Images/Images/MultiPokeation4.png)
-![CHEESE!](Images/Images/MultiPokeation5.png)
-![CHEESE!](Images/Images/MultiPokeation6.png)
+![CHEESE!](Images/Images/MultiPokeation1.jpeg)
+![CHEESE!](Images/Images/MultiPokeation2.jpeg)
+![CHEESE!](Images/Images/MultiPokeation3.jpeg)
+![CHEESE!](Images/Images/MultiPokeation4.jpeg)
+![CHEESE!](Images/Images/MultiPokeation5.jpeg)
+![CHEESE!](Images/Images/MultiPokeation6.jpeg)
