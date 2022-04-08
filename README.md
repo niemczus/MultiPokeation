@@ -10,4 +10,4 @@ He became the first manual tester and was delighted to learn multiply this way.
 Below few screenshots of the app.
 I used PokeAPI in this project.
 
-<img src = "https://www.icloud.com/iclouddrive/008dP5QDVr1UkFGk2NkTE_Urw#MultiPokeation1">
+<img src = "MultiPokeation/Images/MultiPokeation1.png" width = "300">
