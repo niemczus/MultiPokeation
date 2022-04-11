@@ -10,14 +10,14 @@ He became the first manual tester and was delighted to learn multiply this way.
 Below few screenshots of the app.
 I used PokeAPI in this project.
 
-<p float="left>
-<img src="Images/MultiPokeation1.jpeg" width=150 />
-<img src="Images/MultiPokeation2.jpeg" width=150 />
-<img src="Images/MultiPokeation3.jpeg" width=150 />
+<p float="left">
+<img src="Images/MultiPokeation1.jpeg" width="300" />
+<img src="Images/MultiPokeation2.jpeg" width="300" />
+<img src="Images/MultiPokeation3.jpeg" width="300" />
 </p>
-
-<p float="left>
-<img src="Images/MultiPokeation4.jpeg" width=150 >
-<img src="Images/MultiPokeation5.jpeg" width=150 >
-<img src="Images/MultiPokeation6.jpeg" width=150 >
+                                     
+<p float="left">
+<img src="Images/MultiPokeation4.jpeg" width="300" />
+<img src="Images/MultiPokeation5.jpeg" width="300" />
+<img src="Images/MultiPokeation6.jpeg" width="300" />
 </p>
