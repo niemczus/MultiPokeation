@@ -17,6 +17,9 @@ class TrainingVC: UIViewController {
     @IBOutlet weak var checkButtonBottomConstraint: NSLayoutConstraint!
     
     var score = 0
+    var plusValue = 25
+    var minusValue = 15
+    
     var questionCounter = 1
     var correctCounter = 0
     var correctAnser: Int?
@@ -30,7 +33,7 @@ class TrainingVC: UIViewController {
     
     var numberOne: Int?
     var numberTwo: Int?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -71,11 +74,11 @@ class TrainingVC: UIViewController {
         if userAnswer == correctAnser {
             correctCounter += 1
             correctAlert()
-            score += 12
+            score += plusValue
         } else {
             wrongAlert()
-            if score >= 7 {
-                score -= 7
+            if score >= plusValue {
+                score -= plusValue
             } else {
                 score = 0
             }
@@ -84,7 +87,7 @@ class TrainingVC: UIViewController {
     }
     
     func correctAlert() {
-        let alert = UIAlertController(title: "Good!😃", message: "+12 Points" , preferredStyle: .alert)
+        let alert = UIAlertController(title: "Good!😃", message: "+\(plusValue) Points" , preferredStyle: .alert)
         let action = UIAlertAction(title: "Next quest", style: .default) { (_) in
             if self.checkEvolution() == false {
             self.endTraining()
@@ -97,9 +100,9 @@ class TrainingVC: UIViewController {
     func wrongAlert() {
         var title = ""
         var message = ""
-        if score >= 7 {
+        if score >= minusValue {
             title = "Wrong..😐"
-            message = "-7 points"
+            message = "-\(minusValue) points"
         } else {
             title = "Wrong answer"
             message = "Try again 😉"
@@ -161,16 +164,16 @@ class TrainingVC: UIViewController {
     func loadSettings() {
         evolutionNumber = UserDefaults.standard.integer(forKey: "evolutionNumber")
         score = UserDefaults.standard.integer(forKey: "score")
-        pokemonName = UserDefaults.standard.string(forKey: S.pokemonName) ?? "Error"
-        pokemonNumber = UserDefaults.standard.integer(forKey: S.pokemonNumber)
-        pokemon = UserDefaults.standard.integer(forKey: S.pokemon)
+        pokemonName = UserDefaults.standard.string(forKey: Static.pokemonName.rawValue) ?? "Error"
+        pokemonNumber = UserDefaults.standard.integer(forKey: Static.pokemonNumber.rawValue)
+        pokemon = UserDefaults.standard.integer(forKey: Static.pokemon.rawValue)
     }
     
     func saveSettings() {
         UserDefaults.standard.set(score, forKey: "score")
         UserDefaults.standard.set(evolutionNumber, forKey: "evolutionNumber")
-        UserDefaults.standard.set(pokemonName, forKey: S.pokemonName)
-        UserDefaults.standard.set(pokemonNumber, forKey: S.pokemonNumber)
+        UserDefaults.standard.set(pokemonName, forKey: Static.pokemonName.rawValue)
+        UserDefaults.standard.set(pokemonNumber, forKey: Static.pokemonNumber.rawValue)
     }
     
     func addObservers() {

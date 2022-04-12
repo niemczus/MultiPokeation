@@ -27,9 +27,9 @@ class EvolutionVC: UIViewController {
     }
     
     func loadSettings() {
-        pokemonName = UserDefaults.standard.string(forKey: S.pokemonName) ?? "error"
-        evolutionNumber = UserDefaults.standard.integer(forKey: S.evolutionNumber)
-        pokemonNumber = UserDefaults.standard.integer(forKey: S.pokemonNumber)
+        pokemonName = UserDefaults.standard.string(forKey: Static.pokemonName.rawValue) ?? "error"
+        evolutionNumber = UserDefaults.standard.integer(forKey: Static.evolutionNumber.rawValue)
+        pokemonNumber = UserDefaults.standard.integer(forKey: Static.pokemonNumber.rawValue)
      }
     
     func changeUI() {

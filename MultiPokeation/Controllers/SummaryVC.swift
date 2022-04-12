@@ -35,19 +35,19 @@ class SummaryVC: UIViewController {
     }
     
     func loadSettings() {
-        pokemonName = UserDefaults.standard.string(forKey: S.pokemonName) ?? "error"
-        pokemonNumber = UserDefaults.standard.integer(forKey: S.pokemonNumber)
+        pokemonName = UserDefaults.standard.string(forKey: Static.pokemonName.rawValue) ?? "error"
+        pokemonNumber = UserDefaults.standard.integer(forKey: Static.pokemonNumber.rawValue)
         guard
-            let collectionImages = UserDefaults.standard.array(forKey: S.collectionImages) as? Array<Int>,
-            let collectionNames = UserDefaults.standard.array(forKey: S.collectionNames) as? Array<String>
+            let collectionImages = UserDefaults.standard.array(forKey: Static.collectionImages.rawValue) as? Array<Int>,
+            let collectionNames = UserDefaults.standard.array(forKey: Static.collectionNames.rawValue) as? Array<String>
         else { return }
         self.collectionImages = collectionImages
         self.collectionNames = collectionNames
      }
     
     func saveSettings() {
-        UserDefaults.standard.set(collectionImages, forKey: S.collectionImages)
-        UserDefaults.standard.set(collectionNames, forKey: S.collectionNames)
+        UserDefaults.standard.set(collectionImages, forKey: Static.collectionImages.rawValue)
+        UserDefaults.standard.set(collectionNames, forKey: Static.collectionNames.rawValue)
     }
     
     func changeUI() {

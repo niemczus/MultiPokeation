@@ -54,19 +54,19 @@ class InitialVC: UIViewController {
     }
     
     func loadSettings() {
-        username = UserDefaults.standard.string(forKey: S.username)
+        username = UserDefaults.standard.string(forKey: Static.username.rawValue)
     }
     
     func saveSettings() {
-        let ud = UserDefaults.standard
+        let defaults = UserDefaults.standard
         
-        ud.set(nameTextField.text, forKey: S.username)
-        ud.set(choosenName, forKey: S.pokemonName)
-        ud.set(choosenNumber, forKey: S.pokemonNumber)
-        ud.set(firstChoose, forKey: S.firstChoose)
-        ud.set(evolutionNumber, forKey: S.evolutionNumber)
-        ud.set(pokemon, forKey: S.pokemon)
-        ud.set(score, forKey: S.score)
+        defaults.set(nameTextField.text, forKey: Static.username.rawValue)
+        defaults.set(choosenName, forKey: Static.pokemonName.rawValue)
+        defaults.set(choosenNumber, forKey: Static.pokemonNumber.rawValue)
+        defaults.set(firstChoose, forKey: Static.firstChoose.rawValue)
+        defaults.set(evolutionNumber, forKey: Static.evolutionNumber.rawValue)
+        defaults.set(pokemon, forKey: Static.pokemon.rawValue)
+        defaults.set(score, forKey: Static.score.rawValue)
     }
     func changeUI() {
         nameTextField.text = username
@@ -125,6 +125,8 @@ extension UIImageView {
         guard let url = URL(string: urlAdress) else { return }
         
         DispatchQueue.main.async {
+    
+            print(" Thread current: \(Thread.current)")
             if let imageData = try? Data(contentsOf: url) {
                 if let loadedImage = UIImage(data: imageData) {
                     self.image = loadedImage
