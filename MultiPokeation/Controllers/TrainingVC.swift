@@ -124,7 +124,6 @@ class TrainingVC: UIViewController {
         present(alert, animated: true)
     }
     
-    
     func checkEvolution() -> Bool {
         if score >= 100 && evolutionNumber < 3 {
             evolutionNumber += 1
@@ -206,7 +205,6 @@ class TrainingVC: UIViewController {
             self.checkButtonBottomConstraint.constant = 0
         }
     }
-    
 }
 
 extension TrainingVC {

@@ -10,7 +10,6 @@ import UIKit
 class InitialVC: UIViewController {
     
     @IBOutlet weak var nameTextField: UITextField!
-    
     @IBOutlet weak var firstEvolutionImageView: UIImageView!
     @IBOutlet weak var secondEvolutionImageView: UIImageView!
     @IBOutlet weak var thirdEvolutionImageView: UIImageView!
@@ -24,15 +23,12 @@ class InitialVC: UIViewController {
     var firstChoose = "first"
     var username: String?
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         nameTextField.delegate = self
         picker.dataSource = self
         picker.delegate = self
-        
         loadSettings()
         setupHideKeyboardOnTap()
         changeUI()
@@ -80,7 +76,6 @@ class InitialVC: UIViewController {
     }
 }
 
-
 extension InitialVC: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         1
@@ -99,7 +94,6 @@ extension InitialVC: UITextFieldDelegate {
 }
 
 extension InitialVC: UIPickerViewDelegate {
-    
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         getPokemons(firstID: pokemons[row].firstEvolution.number, secondID: pokemons[row].secondEvolution.number, thirdID: pokemons[row].thirdEvolution.number)
         choosenName = pokemons[row].firstEvolution.name
@@ -137,12 +131,6 @@ extension UIImageView {
 }
 
 extension UIViewController {
-    //    struct Color {
-    //        let red: Int
-    //        let green: Int
-    //
-    //    }
-    
     func setGradientBackground(colorTop: CGColor, colorBottom: CGColor) {
         //        let colorTop =  UIColor(red: 57.0/255.0, green: 174.0/255.0, blue: 169/255.0, alpha: 1.0).cgColor
         //        let colorBottom = UIColor(red: 162.0/255.0, green: 213.0/255.0, blue: 171.0/255.0, alpha: 1.0).cgColor
@@ -162,7 +150,6 @@ extension UIViewController {
         self.view.addGestureRecognizer(self.endEditingRecognizer())
         self.navigationController?.navigationBar.addGestureRecognizer(self.endEditingRecognizer())
     }
-    
     /// Dismisses the keyboard from self.view
     private func endEditingRecognizer() -> UIGestureRecognizer {
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(self.view.endEditing(_:)))
@@ -170,14 +157,3 @@ extension UIViewController {
         return tap
     }
 }
-
-//extension UIViewController {
-//    func pushVC(storyboardName: String, vcName: String) {
-//        let vc = UIStoryboard.init(name: storyboardName, bundle: .main).instantiateViewController(withIdentifier: vcName)
-//        vc.hidesBottomBarWhenPushed = true
-//        self.navigationController?.pushViewController(vc, animated: true)
-//    }
-//
-//}
-
-

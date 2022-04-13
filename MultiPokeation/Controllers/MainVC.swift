@@ -22,9 +22,6 @@ class MainVC: UIViewController {
     var pokemonNumber = 0
     var score = 0
    
-   
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         

@@ -45,15 +45,3 @@ let pokemons = [
     Pokemon(firstEvolution: Details(name: "Chimchar", number: 390), secondEvolution: Details(name: "Monferno", number: 391), thirdEvolution: Details(name: "Infernape", number: 392)),
     Pokemon(firstEvolution: Details(name: "Shinx", number: 403), secondEvolution: Details(name: "Luxio", number: 404), thirdEvolution: Details(name: "Luxray", number: 405))
     ]
-
-//Pichu - 172 / Pikachu - 25 / Raichu - 26
-//Igglybuff - 174 / Jigglypuff - 39 / Wigglytuff - 40
-//Bulbasaur - 1 / Ivysaur - 2 / Venusaur - 3
-//Charmander  - 4 / Charmeren - 5 / Charizard - 6
-//Squirtle - 7 / Wartortle - 8 / Blastoise - 9
-//Pidgey - 16 / Pidgeotto - 17 /  Pidgeot - 18
-//Igglybuff - 174 / Jigglypuff - 39 / Wigglytuff - 40
-//Dratini - 147 / Dragonair - 148 / Dragonite - 149
-//Poliwag - 60 / Poliwhirl - 61 / Poliwrath - 62
-//Horsea - 116 / Seadra - 117 / Kingdra - 230
-

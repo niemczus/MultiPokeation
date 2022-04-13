@@ -10,8 +10,8 @@ import UIKit
 class CollectionVC: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    var collectionImages = Array<Int>()
-    var collectionNames: Array<String>?
+    var collectionImages:[Int] = []
+    var collectionNames:[String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +26,7 @@ class CollectionVC: UIViewController {
         let alert = UIAlertController(title: "Delete all your collection?", message: .none, preferredStyle: .alert)
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { (_) in
             self.collectionImages.removeAll()
-            self.collectionNames?.removeAll()
+            self.collectionNames.removeAll()
             UserDefaults.standard.set(self.collectionImages, forKey: Static.collectionImages.rawValue)
             UserDefaults.standard.set(self.collectionNames, forKey: Static.collectionNames.rawValue)
         }
@@ -55,7 +55,7 @@ extension CollectionVC: UICollectionViewDelegate, UICollectionViewDataSource, UI
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "pokemonCell", for: indexPath) as? PokemonCell else { return UICollectionViewCell() }
         DispatchQueue.main.async {
-            cell.populate(number: self.collectionImages[indexPath.item], name: self.collectionNames?[indexPath.item] ?? "Pokemon")
+            cell.populate(number: self.collectionImages[indexPath.item], name: self.collectionNames[indexPath.item])
         }
         return cell
     }

@@ -11,12 +11,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
     
-    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         checkIfFirstChoose()
         guard let _ = (scene as? UIWindowScene) else { return }
     }
-    
     
     func checkIfFirstChoose() {
         guard let firstChoose = UserDefaults.standard.string(forKey: "firstChoose") else { return }
@@ -27,7 +25,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
             window?.rootViewController = navigationController
         }
-        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -60,7 +57,5 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Save changes in the application's managed object context when the application transitions to the background.
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
-
-
 }
 
