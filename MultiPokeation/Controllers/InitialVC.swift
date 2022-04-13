@@ -21,7 +21,7 @@ class InitialVC: UIViewController {
     var evolutionNumber = 1
     var score = 0
     var firstChoose = "first"
-    var username: String?
+    var username = Settings.shared.username
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +29,7 @@ class InitialVC: UIViewController {
         nameTextField.delegate = self
         picker.dataSource = self
         picker.delegate = self
-        loadSettings()
+//        loadSettings()
         setupHideKeyboardOnTap()
         changeUI()
     }
@@ -49,20 +49,20 @@ class InitialVC: UIViewController {
         thirdEvolutionImageView.loadFrom(urlAdress: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/\(thirdID).png")
     }
     
-    func loadSettings() {
-        username = UserDefaults.standard.string(forKey: Static.username.rawValue)
-    }
+//    func loadSettings() {
+//        username = UserDefaults.standard.string(forKey: Statics.username.rawValue)
+//    }
     
     func saveSettings() {
         let defaults = UserDefaults.standard
         
-        defaults.set(nameTextField.text, forKey: Static.username.rawValue)
-        defaults.set(choosenName, forKey: Static.pokemonName.rawValue)
-        defaults.set(choosenNumber, forKey: Static.pokemonNumber.rawValue)
-        defaults.set(firstChoose, forKey: Static.firstChoose.rawValue)
-        defaults.set(evolutionNumber, forKey: Static.evolutionNumber.rawValue)
-        defaults.set(pokemon, forKey: Static.pokemon.rawValue)
-        defaults.set(score, forKey: Static.score.rawValue)
+        defaults.set(nameTextField.text, forKey: Statics.username.rawValue)
+        defaults.set(choosenName, forKey: Statics.pokemonName.rawValue)
+        defaults.set(choosenNumber, forKey: Statics.pokemonNumber.rawValue)
+        defaults.set(firstChoose, forKey: Statics.firstChoose.rawValue)
+        defaults.set(evolutionNumber, forKey: Statics.evolutionNumber.rawValue)
+        defaults.set(pokemon, forKey: Statics.pokemon.rawValue)
+        defaults.set(score, forKey: Statics.score.rawValue)
     }
     func changeUI() {
         nameTextField.text = username
@@ -78,7 +78,7 @@ class InitialVC: UIViewController {
 
 extension InitialVC: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        1
+        return 1
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {

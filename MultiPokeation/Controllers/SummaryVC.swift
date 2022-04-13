@@ -14,8 +14,8 @@ class SummaryVC: UIViewController {
     
     var pokemonName = ""
     var pokemonNumber = 0
-    var collectionImages = Array<Int>()
-    var collectionNames = Array<String>()
+    var collectionImages: [Int] = []
+    var collectionNames: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,19 +35,19 @@ class SummaryVC: UIViewController {
     }
     
     func loadSettings() {
-        pokemonName = UserDefaults.standard.string(forKey: Static.pokemonName.rawValue) ?? "error"
-        pokemonNumber = UserDefaults.standard.integer(forKey: Static.pokemonNumber.rawValue)
+        pokemonName = UserDefaults.standard.string(forKey: Statics.pokemonName.rawValue) ?? "error"
+        pokemonNumber = UserDefaults.standard.integer(forKey: Statics.pokemonNumber.rawValue)
         guard
-            let collectionImages = UserDefaults.standard.array(forKey: Static.collectionImages.rawValue) as? Array<Int>,
-            let collectionNames = UserDefaults.standard.array(forKey: Static.collectionNames.rawValue) as? Array<String>
+            let collectionImages = UserDefaults.standard.array(forKey: Statics.collectionImages.rawValue) as? Array<Int>,
+            let collectionNames = UserDefaults.standard.array(forKey: Statics.collectionNames.rawValue) as? Array<String>
         else { return }
         self.collectionImages = collectionImages
         self.collectionNames = collectionNames
      }
     
     func saveSettings() {
-        UserDefaults.standard.set(collectionImages, forKey: Static.collectionImages.rawValue)
-        UserDefaults.standard.set(collectionNames, forKey: Static.collectionNames.rawValue)
+        UserDefaults.standard.set(collectionImages, forKey: Statics.collectionImages.rawValue)
+        UserDefaults.standard.set(collectionNames, forKey: Statics.collectionNames.rawValue)
     }
     
     func changeUI() {
@@ -57,7 +57,7 @@ class SummaryVC: UIViewController {
     }
     
     func addToCollection() {
-        self.collectionImages.append(pokemonNumber)
-        self.collectionNames.append(pokemonName)
+        collectionImages.append(pokemonNumber)
+        collectionNames.append(pokemonName)
     }
 }

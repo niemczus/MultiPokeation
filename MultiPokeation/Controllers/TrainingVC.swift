@@ -163,16 +163,16 @@ class TrainingVC: UIViewController {
     func loadSettings() {
         evolutionNumber = UserDefaults.standard.integer(forKey: "evolutionNumber")
         score = UserDefaults.standard.integer(forKey: "score")
-        pokemonName = UserDefaults.standard.string(forKey: Static.pokemonName.rawValue) ?? "Error"
-        pokemonNumber = UserDefaults.standard.integer(forKey: Static.pokemonNumber.rawValue)
-        pokemon = UserDefaults.standard.integer(forKey: Static.pokemon.rawValue)
+        pokemonName = UserDefaults.standard.string(forKey: Statics.pokemonName.rawValue) ?? "Error"
+        pokemonNumber = UserDefaults.standard.integer(forKey: Statics.pokemonNumber.rawValue)
+        pokemon = UserDefaults.standard.integer(forKey: Statics.pokemon.rawValue)
     }
     
     func saveSettings() {
         UserDefaults.standard.set(score, forKey: "score")
         UserDefaults.standard.set(evolutionNumber, forKey: "evolutionNumber")
-        UserDefaults.standard.set(pokemonName, forKey: Static.pokemonName.rawValue)
-        UserDefaults.standard.set(pokemonNumber, forKey: Static.pokemonNumber.rawValue)
+        UserDefaults.standard.set(pokemonName, forKey: Statics.pokemonName.rawValue)
+        UserDefaults.standard.set(pokemonNumber, forKey: Statics.pokemonNumber.rawValue)
     }
     
     func addObservers() {

@@ -27,8 +27,8 @@ class CollectionVC: UIViewController {
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { (_) in
             self.collectionImages.removeAll()
             self.collectionNames.removeAll()
-            UserDefaults.standard.set(self.collectionImages, forKey: Static.collectionImages.rawValue)
-            UserDefaults.standard.set(self.collectionNames, forKey: Static.collectionNames.rawValue)
+            UserDefaults.standard.set(self.collectionImages, forKey: Statics.collectionImages.rawValue)
+            UserDefaults.standard.set(self.collectionNames, forKey: Statics.collectionNames.rawValue)
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: .none)
         alert.addAction(deleteAction)
@@ -41,8 +41,8 @@ class CollectionVC: UIViewController {
     }
     
     func loadSettings() {
-        collectionImages = (UserDefaults.standard.array(forKey: Static.collectionImages.rawValue) as? Array<Int>) ?? [Int]()
-        collectionNames = (UserDefaults.standard.array(forKey: Static.collectionNames.rawValue) as? Array<String>) ?? [String]()
+        collectionImages = (UserDefaults.standard.array(forKey: Statics.collectionImages.rawValue) as? Array<Int>) ?? [Int]()
+        collectionNames = (UserDefaults.standard.array(forKey: Statics.collectionNames.rawValue) as? Array<String>) ?? [String]()
     }
 }
 
