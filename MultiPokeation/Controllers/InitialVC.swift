@@ -15,32 +15,46 @@ class InitialVC: UIViewController {
     @IBOutlet weak var thirdEvolutionImageView: UIImageView!
     @IBOutlet weak var picker: UIPickerView!
     
-    var pokemon = 0
-    var choosenName = pokemons[0].firstEvolution.name
-    var choosenNumber = pokemons[0].firstEvolution.number
-    var evolutionNumber = 1
-    var score = 0
-    var firstChoose = "first"
-    var username = Settings.shared.username
+    var pokemon: Int = 0 {
+        didSet {
+            Settings.shared.pokemon = pokemon
+        }
+    }
+    
+    var pokemonName: String = pokemons[0].firstEvolution.name {
+        didSet {
+            Settings.shared.pokemonName = pokemonName
+        }
+    }
+    
+    var pokemonNumber: Int = pokemons[0].firstEvolution.number {
+        didSet {
+            Settings.shared.pokemonNumber = pokemonNumber
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+       
         nameTextField.delegate = self
         picker.dataSource = self
         picker.delegate = self
-//        loadSettings()
+        
         setupHideKeyboardOnTap()
         changeUI()
+        
+        Settings.shared.pokemon = pokemon
+        Settings.shared.pokemonName = pokemonName
+        Settings.shared.pokemonNumber = pokemonNumber
     }
     
     @IBAction func nameTextView(_ sender: UITextField) {
+        Settings.shared.username = nameTextField.text ?? ""
         resignFirstResponder()
     }
     
     @IBAction func confirmButton(_ sender: UIButton) {
-        firstChoose = "another"
-        saveSettings()
+        Settings.shared.firstChoose = "another"
     }
     
     func getPokemons(firstID: Int, secondID: Int, thirdID: Int) {
@@ -49,23 +63,8 @@ class InitialVC: UIViewController {
         thirdEvolutionImageView.loadFrom(urlAdress: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/\(thirdID).png")
     }
     
-//    func loadSettings() {
-//        username = UserDefaults.standard.string(forKey: Statics.username.rawValue)
-//    }
-    
-    func saveSettings() {
-        let defaults = UserDefaults.standard
-        
-        defaults.set(nameTextField.text, forKey: Statics.username.rawValue)
-        defaults.set(choosenName, forKey: Statics.pokemonName.rawValue)
-        defaults.set(choosenNumber, forKey: Statics.pokemonNumber.rawValue)
-        defaults.set(firstChoose, forKey: Statics.firstChoose.rawValue)
-        defaults.set(evolutionNumber, forKey: Statics.evolutionNumber.rawValue)
-        defaults.set(pokemon, forKey: Statics.pokemon.rawValue)
-        defaults.set(score, forKey: Statics.score.rawValue)
-    }
     func changeUI() {
-        nameTextField.text = username
+        nameTextField.text = Settings.shared.username
         firstEvolutionImageView.layer.cornerRadius = 15
         secondEvolutionImageView.layer.cornerRadius = 15
         thirdEvolutionImageView.layer.cornerRadius = 15
@@ -96,8 +95,8 @@ extension InitialVC: UITextFieldDelegate {
 extension InitialVC: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         getPokemons(firstID: pokemons[row].firstEvolution.number, secondID: pokemons[row].secondEvolution.number, thirdID: pokemons[row].thirdEvolution.number)
-        choosenName = pokemons[row].firstEvolution.name
-        choosenNumber = pokemons[row].firstEvolution.number
+        pokemonName = pokemons[row].firstEvolution.name
+        pokemonNumber = pokemons[row].firstEvolution.number
         pokemon = row
     }
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
@@ -132,9 +131,6 @@ extension UIImageView {
 
 extension UIViewController {
     func setGradientBackground(colorTop: CGColor, colorBottom: CGColor) {
-        //        let colorTop =  UIColor(red: 57.0/255.0, green: 174.0/255.0, blue: 169/255.0, alpha: 1.0).cgColor
-        //        let colorBottom = UIColor(red: 162.0/255.0, green: 213.0/255.0, blue: 171.0/255.0, alpha: 1.0).cgColor
-        
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = [colorTop, colorBottom]
         gradientLayer.locations = [0.0, 1.0]

@@ -12,25 +12,19 @@ class EvolutionVC: UIViewController {
     @IBOutlet weak var pokemonImageView: UIImageView!
     @IBOutlet weak var pokemonNameLabel: UILabel!
     
-    var pokemonName = ""
-    var evolutionNumber = 1
-    var pokemonNumber = 0
+    var pokemonName = Settings.shared.pokemonName
+    var evolutionNumber = Settings.shared.evolutionNumber
+    var pokemonNumber = Settings.shared.pokemonNumber
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadSettings()
+        
         changeUI()
     }
     
     @IBAction func continueButton(_ sender: UIButton) {
         performSegue(withIdentifier: "segueEvolutionVCToMainVC", sender: .none)
     }
-    
-    func loadSettings() {
-        pokemonName = UserDefaults.standard.string(forKey: Statics.pokemonName.rawValue) ?? "error"
-        evolutionNumber = UserDefaults.standard.integer(forKey: Statics.evolutionNumber.rawValue)
-        pokemonNumber = UserDefaults.standard.integer(forKey: Statics.pokemonNumber.rawValue)
-     }
     
     func changeUI() {
         pokemonImageView.loadFrom(urlAdress: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/\(pokemonNumber).png")

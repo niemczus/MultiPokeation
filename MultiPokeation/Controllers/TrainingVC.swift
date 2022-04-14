@@ -16,28 +16,47 @@ class TrainingVC: UIViewController {
     @IBOutlet weak var answetTextField: UITextField!
     @IBOutlet weak var checkButtonBottomConstraint: NSLayoutConstraint!
     
-    var score = 0
-    var plusValue = 25
+    var initialScore = Settings.shared.score
+    var score: Int = 0 {
+        didSet {
+            Settings.shared.score = score
+            print(score)
+        }
+    }
+    var initialEvolutionNumber = Settings.shared.evolutionNumber
+    var evolutionNumber: Int = 1 {
+        didSet {
+            Settings.shared.evolutionNumber = evolutionNumber
+        }
+    }
+    var initialPokemonName = Settings.shared.pokemonName
+    var pokemonName: String = "" {
+        didSet {
+            Settings.shared.pokemonName = pokemonName
+        }
+    }
+    var initialPokemonNumber = Settings.shared.pokemonNumber
+    var pokemonNumber: Int = 1 {
+        didSet {
+            Settings.shared.pokemonNumber = pokemonNumber
+        }
+    }
+    var pokemon = Settings.shared.pokemon
+    var plusValue = 50
     var minusValue = 15
-    
     var questionCounter = 1
     var correctCounter = 0
     var correctAnser: Int?
     var userAnswer: Int?
-    
-    var pokemonName = ""
-    var pokemonNumber = 0
-    var pokemon = 0
-    var evolutionNumber: Int = 1
     var level = [2, 4, 7, 10]
-    
     var numberOne: Int?
     var numberTwo: Int?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadSettings()
+        score = initialScore
+        evolutionNumber = initialEvolutionNumber
         changeUI()
         addObservers()
         setupHideKeyboardOnTap()
@@ -53,7 +72,6 @@ class TrainingVC: UIViewController {
     
     @IBAction func didTapQuitTrainingButton(_ sender: UIButton) {
         performSegue(withIdentifier: "sequeTrainingVCToMainVC", sender: .none)
-        saveSettings()
     }
     
     func changeUI() {
@@ -77,8 +95,8 @@ class TrainingVC: UIViewController {
             score += plusValue
         } else {
             wrongAlert()
-            if score >= plusValue {
-                score -= plusValue
+            if Settings.shared.score >= minusValue {
+                score -= minusValue
             } else {
                 score = 0
             }
@@ -136,12 +154,10 @@ class TrainingVC: UIViewController {
             }
             score = 0
             questionCounter = 1
-            saveSettings()
             performSegue(withIdentifier: "segueFromTrainingVCToEvolutionVC", sender: .none)
             return true
         }  else if score >= 100 && evolutionNumber == 3 {
             performSegue(withIdentifier: "segueFromTrainingVCToSummaryVC", sender: .none)
-            saveSettings()
             return true
         } else {
             return false
@@ -155,24 +171,8 @@ class TrainingVC: UIViewController {
             quest()
             self.answetTextField.becomeFirstResponder()
         } else {
-            saveSettings()
             summaryAlert()
         }
-    }
-    
-    func loadSettings() {
-        evolutionNumber = UserDefaults.standard.integer(forKey: "evolutionNumber")
-        score = UserDefaults.standard.integer(forKey: "score")
-        pokemonName = UserDefaults.standard.string(forKey: Statics.pokemonName.rawValue) ?? "Error"
-        pokemonNumber = UserDefaults.standard.integer(forKey: Statics.pokemonNumber.rawValue)
-        pokemon = UserDefaults.standard.integer(forKey: Statics.pokemon.rawValue)
-    }
-    
-    func saveSettings() {
-        UserDefaults.standard.set(score, forKey: "score")
-        UserDefaults.standard.set(evolutionNumber, forKey: "evolutionNumber")
-        UserDefaults.standard.set(pokemonName, forKey: Statics.pokemonName.rawValue)
-        UserDefaults.standard.set(pokemonNumber, forKey: Statics.pokemonNumber.rawValue)
     }
     
     func addObservers() {

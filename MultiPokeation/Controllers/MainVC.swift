@@ -16,22 +16,23 @@ class MainVC: UIViewController {
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var progressView: UIProgressView!
     
-    var username = "None"
-    var pokemonName = "None"
-    var evolutionNumber = 1
-    var pokemonNumber = 0
-    var score = 0
+    var username = Settings.shared.username
+    var pokemonName = Settings.shared.pokemonName
+    var evolutionNumber = Settings.shared.evolutionNumber
+    var pokemonNumber = Settings.shared.pokemonNumber
+    var score = Settings.shared.score
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        loadSettings()
+
         changeUI()
     }
     
     @IBAction func didTapRestartButton(_ sender: UIButton) {
         let alert = UIAlertController(title: "You lose \(pokemonName) training progress ", message: .none, preferredStyle: .alert)
         let confirmAction = UIAlertAction(title: "Confirm", style: .destructive) { (_) in
+            Settings.shared.evolutionNumber = 1
+            Settings.shared.score = 0
             self.performSegue(withIdentifier: "fromMainVCToInitialVC", sender: .none)
         }
         let backAction = UIAlertAction(title: "Back", style: .default)
@@ -47,15 +48,7 @@ class MainVC: UIViewController {
             performSegue(withIdentifier: "fromMainVCToTrainingVC", sender: .none)
         }
     }
-    
-   func loadSettings() {
-       username = UserDefaults.standard.string(forKey: "username") ?? "Error"
-       pokemonName = UserDefaults.standard.string(forKey: "pokemonName") ?? "Error"
-       evolutionNumber = UserDefaults.standard.integer(forKey: "evolutionNumber")
-       pokemonNumber = UserDefaults.standard.integer(forKey: "pokemonNumber")
-       score = UserDefaults.standard.integer(forKey: "score")
-    }
-    
+
     func changeUI() {
         nameLabel.text = username
         pokemonLabel.text = pokemonName
@@ -69,6 +62,8 @@ class MainVC: UIViewController {
     func restartAlert() {
         let alert = UIAlertController(title: "You fully trained \(pokemonName)", message: .none, preferredStyle: .actionSheet)
         let action = UIAlertAction(title: "Train another", style: .default) { (_) in
+            Settings.shared.evolutionNumber = 1
+            Settings.shared.score = 0
             self.performSegue(withIdentifier: "fromMainVCToInitialVC", sender: .none)
         }
         alert.addAction(action)

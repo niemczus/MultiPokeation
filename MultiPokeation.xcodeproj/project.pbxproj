@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		320620442807184400E6CB75 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320620432807184400E6CB75 /* Settings.swift */; };
 		32340BDC27F8400900AD4809 /* PokemonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32340BDB27F8400900AD4809 /* PokemonCell.swift */; };
 		3269CCCC27F7206B009B73B2 /* CollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3269CCCB27F7206B009B73B2 /* CollectionVC.swift */; };
 		3284A41827EDC63D0036C650 /* PokemonAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 3284A41727EDC63D0036C650 /* PokemonAPI */; };
@@ -45,6 +46,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		320620432807184400E6CB75 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		32340BDB27F8400900AD4809 /* PokemonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCell.swift; sourceTree = "<group>"; };
 		3269CCCB27F7206B009B73B2 /* CollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionVC.swift; sourceTree = "<group>"; };
 		3284A41927EDD4370036C650 /* Pokemons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemons.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				3284A41927EDD4370036C650 /* Pokemons.swift */,
 				32DED84727F4912500C106F8 /* Statics.swift */,
 				32340BDB27F8400900AD4809 /* PokemonCell.swift */,
+				320620432807184400E6CB75 /* Settings.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 			files = (
 				32D1512127F1DD6C0010415E /* TrainingVC.swift in Sources */,
 				328D24E327E8BF7300E8EF83 /* MultiPokeation.xcdatamodeld in Sources */,
+				320620442807184400E6CB75 /* Settings.swift in Sources */,
 				3269CCCC27F7206B009B73B2 /* CollectionVC.swift in Sources */,
 				32DED84427F4681400C106F8 /* EvolutionVC.swift in Sources */,
 				328D24DD27E8BF7300E8EF83 /* InitialVC.swift in Sources */,
