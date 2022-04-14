@@ -15,7 +15,7 @@ class TrainingVC: UIViewController {
     @IBOutlet weak var numberTwoLabel: UILabel!
     @IBOutlet weak var answetTextField: UITextField!
     @IBOutlet weak var checkButtonBottomConstraint: NSLayoutConstraint!
-    
+   
     var initialScore = Settings.shared.score
     var score: Int = 0 {
         didSet {
@@ -102,44 +102,6 @@ class TrainingVC: UIViewController {
             }
         }
         answetTextField.text = nil
-    }
-    
-    func correctAlert() {
-        let alert = UIAlertController(title: "Good!😃", message: "+\(plusValue) Points" , preferredStyle: .alert)
-        let action = UIAlertAction(title: "Next quest", style: .default) { (_) in
-            if self.checkEvolution() == false {
-            self.endTraining()
-            }
-        }
-        alert.addAction(action)
-        present(alert, animated: true)
-    }
-    
-    func wrongAlert() {
-        var title = ""
-        var message = ""
-        if score >= minusValue {
-            title = "Wrong..😐"
-            message = "-\(minusValue) points"
-        } else {
-            title = "Wrong answer"
-            message = "Try again 😉"
-        }
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let action = UIAlertAction(title: "Next quest", style: .default) { (_) in
-            self.endTraining()
-        }
-        alert.addAction(action)
-        present(alert, animated: true)
-    }
-    
-    func summaryAlert() {
-        let alert = UIAlertController(title: "Take a rest!", message: "Correct answers: \(correctCounter) / 10", preferredStyle: .actionSheet)
-        let action = UIAlertAction(title: "Ok", style: .default) { (_) in
-            self.performSegue(withIdentifier: "sequeTrainingVCToMainVC", sender: nil)
-        }
-        alert.addAction(action)
-        present(alert, animated: true)
     }
     
     func checkEvolution() -> Bool {
