@@ -47,3 +47,16 @@ extension TrainingVC {
         present(alert, animated: true)
     }
 }
+
+extension MainVC {
+    func restartAlert() {
+        let alert = UIAlertController(title: "You fully trained \(pokemonName)", message: .none, preferredStyle: .actionSheet)
+        let action = UIAlertAction(title: "Train another", style: .default) { (_) in
+            Settings.shared.evolutionNumber = 1
+            Settings.shared.score = 0
+            self.performSegue(withIdentifier: "fromMainVCToInitialVC", sender: .none)
+        }
+        alert.addAction(action)
+        present(alert, animated: true)
+        }
+}

@@ -27,7 +27,8 @@ class EvolutionVC: UIViewController {
     }
     
     func changeUI() {
-        pokemonImageView.loadFrom(urlAdress: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/\(pokemonNumber).png")
+        let pokemonImage = URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/\(pokemonNumber).png")
+        pokemonImageView.kf.setImage(with: pokemonImage)
         pokemonNameLabel.text = pokemonName
         setGradientBackground(colorTop: UIColor(red: 242/255, green: 74/255, blue: 114/255, alpha: 1).cgColor, colorBottom: UIColor(red: 162/255, green: 213/255, blue: 171/255, alpha: 1).cgColor)
     }

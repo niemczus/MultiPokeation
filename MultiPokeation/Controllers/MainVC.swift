@@ -8,7 +8,7 @@
 import UIKit
 
 class MainVC: UIViewController {
-
+    
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var pokemonLabel: UILabel!
     @IBOutlet weak var evolutionLabel: UILabel!
@@ -21,10 +21,10 @@ class MainVC: UIViewController {
     var evolutionNumber = Settings.shared.evolutionNumber
     var pokemonNumber = Settings.shared.pokemonNumber
     var score = Settings.shared.score
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         changeUI()
     }
     
@@ -48,28 +48,16 @@ class MainVC: UIViewController {
             performSegue(withIdentifier: "fromMainVCToTrainingVC", sender: .none)
         }
     }
-
+    
     func changeUI() {
         nameLabel.text = username
         pokemonLabel.text = pokemonName
         evolutionLabel.text = "Evolution \(evolutionNumber)"
-        pokemonImageView.loadFrom(urlAdress: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/\(pokemonNumber).png")
+        let pokemonImage = URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/\(pokemonNumber).png")
+        pokemonImageView.kf.setImage(with: pokemonImage)
         scoreLabel.text = "Score: \(String(score < 100 ? score : 100))"
         progressView.setProgress(Float(score)/100, animated: true)
         setGradientBackground(colorTop: UIColor(red: 83/255, green: 62/255, blue: 133/255, alpha: 1).cgColor, colorBottom: UIColor(red: 162/255, green: 213/255, blue: 171/255, alpha: 1).cgColor)
     }
-    
-    func restartAlert() {
-        let alert = UIAlertController(title: "You fully trained \(pokemonName)", message: .none, preferredStyle: .actionSheet)
-        let action = UIAlertAction(title: "Train another", style: .default) { (_) in
-            Settings.shared.evolutionNumber = 1
-            Settings.shared.score = 0
-            self.performSegue(withIdentifier: "fromMainVCToInitialVC", sender: .none)
-        }
-        alert.addAction(action)
-        present(alert, animated: true)
-    }
 }
-
-
 

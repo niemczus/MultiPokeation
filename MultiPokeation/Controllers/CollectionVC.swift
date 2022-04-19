@@ -24,6 +24,7 @@ class CollectionVC: UIViewController {
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { (_) in
             Settings.shared.collectionNames.removeAll()
             Settings.shared.collectionImages.removeAll()
+            self.collectionView.reloadData()
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: .none)
         alert.addAction(deleteAction)

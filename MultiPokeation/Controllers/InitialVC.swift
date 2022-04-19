@@ -103,6 +103,7 @@ extension InitialVC: UIPickerViewDelegate {
         pokemonNumber = pokemons[row].firstEvolution.number
         pokemon = row
     }
+    
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         var pickerLabel: UILabel? = (view as? UILabel)
         if pickerLabel == nil {
@@ -114,46 +115,5 @@ extension InitialVC: UIPickerViewDelegate {
         pickerLabel?.textColor = UIColor(named: "orange")
         
         return pickerLabel!
-    }
-}
-
-extension UIImageView {
-    func loadFrom(urlAdress: String) {
-        guard let url = URL(string: urlAdress) else { return }
-        
-        DispatchQueue.main.async {
-    
-            print(" Thread current: \(Thread.current)")
-            if let imageData = try? Data(contentsOf: url) {
-                if let loadedImage = UIImage(data: imageData) {
-                    self.image = loadedImage
-                }
-            }
-        }
-    }
-}
-
-extension UIViewController {
-    func setGradientBackground(colorTop: CGColor, colorBottom: CGColor) {
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [colorTop, colorBottom]
-        gradientLayer.locations = [0.0, 1.0]
-        gradientLayer.frame = self.view.bounds
-        
-        self.view.layer.insertSublayer(gradientLayer, at:0)
-    }
-}
-
-extension UIViewController {
-    /// Call this once to dismiss open keyboards by tapping anywhere in the view controller
-    func setupHideKeyboardOnTap() {
-        self.view.addGestureRecognizer(self.endEditingRecognizer())
-        self.navigationController?.navigationBar.addGestureRecognizer(self.endEditingRecognizer())
-    }
-    /// Dismisses the keyboard from self.view
-    private func endEditingRecognizer() -> UIGestureRecognizer {
-        let tap = UITapGestureRecognizer(target: self.view, action: #selector(self.view.endEditing(_:)))
-        tap.cancelsTouchesInView = false
-        return tap
     }
 }

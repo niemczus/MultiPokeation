@@ -31,7 +31,8 @@ class SummaryVC: UIViewController {
 
     func changeUI() {
         pokemonNameLabel.text = pokemonName
-        pokemonImageView.loadFrom(urlAdress: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/\(pokemonNumber).png")
+        let pokemonImage = URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/\(pokemonNumber).png")
+        pokemonImageView.kf.setImage(with: pokemonImage)
         setGradientBackground(colorTop: CGColor(red: 255/255, green: 209/255 , blue: 36/255, alpha: 1), colorBottom: CGColor(red: 162/255, green: 213/255, blue: 171/255, alpha: 1))
     }
     
