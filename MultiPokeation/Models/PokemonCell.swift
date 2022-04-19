@@ -20,7 +20,8 @@ class PokemonCell: UICollectionViewCell {
     func populate(number: Int, name: String ) {
         pokemonNameLabel.layer.masksToBounds = true
         pokemonNameLabel.layer.cornerRadius = 10
-        pokemonImageView.loadFrom(urlAdress: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/\(number).png")
+        let pokemonImage = URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/\(number).png")
+        pokemonImageView.kf.setImage(with: pokemonImage)
         pokemonNameLabel.text = name
     }
 }

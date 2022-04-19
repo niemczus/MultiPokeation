@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class InitialVC: UIViewController {
     
@@ -58,9 +59,12 @@ class InitialVC: UIViewController {
     }
     
     func getPokemons(firstID: Int, secondID: Int, thirdID: Int) {
-        firstEvolutionImageView.loadFrom(urlAdress: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/\(firstID).png")
-        secondEvolutionImageView.loadFrom(urlAdress: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/\(secondID).png")
-        thirdEvolutionImageView.loadFrom(urlAdress: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/\(thirdID).png")
+        let firstEvolutionImage = URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/\(firstID).png")
+        firstEvolutionImageView.kf.setImage(with: firstEvolutionImage)
+        let secondEvolutionImage = URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/\(secondID).png")
+        secondEvolutionImageView.kf.setImage(with: secondEvolutionImage)
+        let thirdEvolutionImage = URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/\(thirdID).png")
+        thirdEvolutionImageView.kf.setImage(with: thirdEvolutionImage)
     }
     
     func changeUI() {
