@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CollectionVC: UIViewController {
+class CollectionViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
 
@@ -16,7 +16,7 @@ class CollectionVC: UIViewController {
 
         collectionView.delegate = self
         collectionView.dataSource = self
-        changeUI()
+        setupViews()
     }
     
     @IBAction func didTapBinButton(_ sender: UIButton) {
@@ -32,12 +32,13 @@ class CollectionVC: UIViewController {
         present(alert, animated: true)
     }
     
-    func changeUI() {
-        setGradientBackground(colorTop: CGColor(red: 156/255, green: 15/255, blue: 72/255, alpha: 1), colorBottom: CGColor(red: 162/255, green: 213/255, blue: 171/255, alpha: 1))
+    func setupViews() {
+        setGradientBackground(colorTop: CGColor(red: 156/255, green: 15/255, blue: 72/255, alpha: 1),
+                              colorBottom: CGColor(red: 162/255, green: 213/255, blue: 171/255, alpha: 1))
     }
 }
 
-extension CollectionVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return Settings.shared.collectionImages.count
@@ -51,7 +52,9 @@ extension CollectionVC: UICollectionViewDelegate, UICollectionViewDataSource, UI
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
         let height: CGFloat = 180
         let width = (collectionView.frame.width / 2) - 10
         let size = CGSize(width: width, height: height)

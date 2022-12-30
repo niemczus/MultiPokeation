@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainVC: UIViewController {
+class MainViewController: UIViewController {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var pokemonLabel: UILabel!
@@ -25,11 +25,13 @@ class MainVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        changeUI()
+        setupViews()
     }
     
     @IBAction func didTapRestartButton(_ sender: UIButton) {
-        let alert = UIAlertController(title: "You lose \(pokemonName) training progress ", message: .none, preferredStyle: .alert)
+        let alert = UIAlertController(title: "You lose \(pokemonName) training progress ",
+                                      message: .none,
+                                      preferredStyle: .alert)
         let confirmAction = UIAlertAction(title: "Confirm", style: .destructive) { (_) in
             Settings.shared.evolutionNumber = 1
             Settings.shared.score = 0
@@ -49,7 +51,7 @@ class MainVC: UIViewController {
         }
     }
     
-    func changeUI() {
+    func setupViews() {
         nameLabel.text = username
         pokemonLabel.text = pokemonName
         evolutionLabel.text = "Evolution \(evolutionNumber)"
@@ -57,7 +59,8 @@ class MainVC: UIViewController {
         pokemonImageView.kf.setImage(with: pokemonImage)
         scoreLabel.text = "Score: \(String(score < 100 ? score : 100))"
         progressView.setProgress(Float(score)/100, animated: true)
-        setGradientBackground(colorTop: UIColor(red: 83/255, green: 62/255, blue: 133/255, alpha: 1).cgColor, colorBottom: UIColor(red: 162/255, green: 213/255, blue: 171/255, alpha: 1).cgColor)
+        setGradientBackground(colorTop: UIColor(red: 83/255, green: 62/255, blue: 133/255, alpha: 1).cgColor,
+                              colorBottom: UIColor(red: 162/255, green: 213/255, blue: 171/255, alpha: 1).cgColor)
     }
 }
 

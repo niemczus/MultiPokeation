@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TrainingVC: UIViewController {
+class TrainingViewController: UIViewController {
     
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var questNumberLabel: UILabel!
@@ -57,7 +57,7 @@ class TrainingVC: UIViewController {
         
         score = initialScore
         evolutionNumber = initialEvolutionNumber
-        changeUI()
+        setupViews()
         addObservers()
         setupHideKeyboardOnTap()
         quest()
@@ -74,9 +74,10 @@ class TrainingVC: UIViewController {
         performSegue(withIdentifier: "sequeTrainingVCToMainVC", sender: .none)
     }
     
-    func changeUI() {
+    func setupViews() {
         progressView.setProgress(Float(score)/100, animated: true)
-        setGradientBackground(colorTop: UIColor(red: 21/255, green: 114/255, blue: 161/255, alpha: 1).cgColor, colorBottom: UIColor(red: 162/255, green: 213/255, blue: 171/255, alpha: 1).cgColor)
+        setGradientBackground(colorTop: UIColor(red: 21/255, green: 114/255, blue: 161/255, alpha: 1).cgColor,
+                              colorBottom: UIColor(red: 162/255, green: 213/255, blue: 171/255, alpha: 1).cgColor)
     }
     
     func quest() {
@@ -169,7 +170,7 @@ class TrainingVC: UIViewController {
     }
 }
 
-extension TrainingVC {
+extension TrainingViewController {
     func animateWithKeyboard(
         notification: NSNotification,
         animations: ((_ keyboardFrame: CGRect) -> Void)?

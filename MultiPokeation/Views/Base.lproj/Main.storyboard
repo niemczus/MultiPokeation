@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aH7-XL-6hb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aH7-XL-6hb">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -21,16 +22,16 @@
         </array>
     </customFonts>
     <scenes>
-        <!--InitialVC-->
+        <!--Initial View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="InitialVC" id="BYZ-38-t0r" customClass="InitialVC" customModule="MultiPokeation" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InitialVC" id="BYZ-38-t0r" customClass="InitialViewController" customModule="MultiPokeation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="PN2-uD-6uj">
-                                <rect key="frame" x="26.666666666666657" y="229.33333333333337" width="322" height="200"/>
+                                <rect key="frame" x="26.666666666666657" y="228.33333333333337" width="322" height="200"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cTf-gT-6oY">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="200"/>
@@ -59,11 +60,11 @@
                                 </subviews>
                             </stackView>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jqE-sr-mAK">
-                                <rect key="frame" x="27.666666666666657" y="478.66666666666674" width="320" height="216"/>
+                                <rect key="frame" x="27.666666666666657" y="476.33333333333326" width="320" height="216"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </pickerView>
                             <textField opaque="NO" contentMode="scaleToFill" highlighted="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your name" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="t1k-bk-thG">
-                                <rect key="frame" x="87.000000000000014" y="153" width="201.33333333333337" height="46.333333333333343"/>
+                                <rect key="frame" x="102" y="153.66666666666666" width="171" height="44.666666666666657"/>
                                 <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="0.14698882450331127" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="MontserratAlternates-Regular" family="Montserrat Alternates" pointSize="30"/>
@@ -73,13 +74,13 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose your Pokemon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ebj-UP-9Qm">
-                                <rect key="frame" x="43.666666666666657" y="449.33333333333331" width="287.66666666666674" height="29.333333333333314"/>
+                                <rect key="frame" x="64.666666666666686" y="448.33333333333331" width="245.99999999999994" height="28"/>
                                 <fontDescription key="fontDescription" name="MontserratAlternates-Bold" family="Montserrat Alternates" pointSize="24"/>
                                 <color key="textColor" red="0.94323444369999998" green="1" blue="0.76193863149999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cXl-Pu-SrE">
-                                <rect key="frame" x="120" y="94" width="135" height="49"/>
+                                <rect key="frame" x="132" y="97" width="111.33333333333331" height="46.666666666666657"/>
                                 <fontDescription key="fontDescription" name="MontserratAlternates-Regular" family="Montserrat Alternates" pointSize="40"/>
                                 <color key="textColor" red="0.94323444369999998" green="1" blue="0.76193863149999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -134,34 +135,34 @@
             </objects>
             <point key="canvasLocation" x="919.20000000000005" y="77.58620689655173"/>
         </scene>
-        <!--MainVC-->
+        <!--Main View Controller-->
         <scene sceneID="cfI-dZ-OKw">
             <objects>
-                <viewController storyboardIdentifier="MainVC" id="P98-br-nWC" customClass="MainVC" customModule="MultiPokeation" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainVC" id="P98-br-nWC" customClass="MainViewController" customModule="MultiPokeation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VMk-ZX-eqt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kid name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KOc-OR-Krx">
-                                <rect key="frame" x="88.666666666666671" y="114" width="197.66666666666663" height="49"/>
+                                <rect key="frame" x="102.66666666666669" y="117.00000000000001" width="170" height="46.666666666666671"/>
                                 <fontDescription key="fontDescription" name="MontserratAlternates-Regular" family="Montserrat Alternates" pointSize="40"/>
                                 <color key="textColor" red="0.9983170629" green="0.73196667429999995" blue="0.73419582839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Evolution 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFk-k9-mmv">
-                                <rect key="frame" x="120.66666666666667" y="204.66666666666666" width="133.66666666666663" height="30.666666666666657"/>
+                                <rect key="frame" x="125.33333333333334" y="203.66666666666666" width="124.33333333333334" height="29.333333333333343"/>
                                 <fontDescription key="fontDescription" name="MontserratAlternates-Regular" family="Montserrat Alternates" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pokemon name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R7i-H0-S6X">
-                                <rect key="frame" x="62.666666666666671" y="163" width="249.66666666666663" height="36.666666666666657"/>
+                                <rect key="frame" x="82.333333333333329" y="163.66666666666666" width="210.66666666666669" height="35"/>
                                 <fontDescription key="fontDescription" name="MontserratAlternates-SemiBold" family="Montserrat Alternates" pointSize="30"/>
                                 <color key="textColor" red="0.94323444369999998" green="1" blue="0.76193863149999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mLf-bj-EIh">
-                                <rect key="frame" x="22.666666666666657" y="265.33333333333331" width="330" height="279.99999999999994"/>
+                                <rect key="frame" x="22.666666666666657" y="263" width="330" height="280"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="330" id="5d1-lW-3u4"/>
@@ -169,13 +170,13 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="score : 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f65-jw-n4y">
-                                <rect key="frame" x="126.66666666666669" y="575.33333333333337" width="122" height="36.666666666666629"/>
+                                <rect key="frame" x="129.66666666666666" y="573" width="115.66666666666666" height="35"/>
                                 <fontDescription key="fontDescription" name="MontserratAlternates-Regular" family="Montserrat Alternates" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WPP-bL-6w3">
-                                <rect key="frame" x="105.00000000000001" y="713" width="165.33333333333337" height="50"/>
+                                <rect key="frame" x="112.66666666666669" y="713" width="150" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="FmN-n5-S7W"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="yAD-Xh-BJU"/>
@@ -195,16 +196,16 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="center" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="BPb-WA-fnp">
-                                <rect key="frame" x="29" y="620" width="317.33333333333331" height="24.666666666666629"/>
+                                <rect key="frame" x="30" y="616" width="315" height="23.333333333333371"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dZv-xU-fKX">
-                                        <rect key="frame" x="0.0" y="0.0" width="13.333333333333334" height="24.666666666666668"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="11.333333333333334" height="23.333333333333332"/>
                                         <fontDescription key="fontDescription" name="MontserratAlternates-Regular" family="Montserrat Alternates" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <progressView opaque="NO" contentMode="bottom" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="IpZ-La-QoM">
-                                        <rect key="frame" x="23.333333333333343" y="10.333333333333371" width="250.00000000000003" height="4"/>
+                                        <rect key="frame" x="21.333333333333343" y="9.6666666666666288" width="250.00000000000003" height="4"/>
                                         <color key="tintColor" red="0.9983170629" green="0.73196667429999995" blue="0.73419582839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.0"/>
                                         <constraints>
@@ -212,7 +213,7 @@
                                         </constraints>
                                     </progressView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0dd-5m-mcf">
-                                        <rect key="frame" x="283.33333333333331" y="0.0" width="34" height="24.666666666666668"/>
+                                        <rect key="frame" x="281.33333333333331" y="0.0" width="33.666666666666686" height="23.333333333333332"/>
                                         <fontDescription key="fontDescription" name="MontserratAlternates-Regular" family="Montserrat Alternates" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -220,7 +221,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWT-IJ-HhF">
-                                <rect key="frame" x="20" y="54" width="80" height="30"/>
+                                <rect key="frame" x="20" y="57" width="80" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="HbQ-jg-d4d"/>
                                     <constraint firstAttribute="height" constant="30" id="VVd-2Z-vS4"/>
@@ -241,7 +242,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="03E-jG-ub7">
-                                <rect key="frame" x="306" y="54" width="40" height="40"/>
+                                <rect key="frame" x="306" y="57" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Iv8-Ft-dEZ"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="KAQ-EP-99w"/>
@@ -306,16 +307,16 @@
             </objects>
             <point key="canvasLocation" x="1714.4000000000001" y="77.58620689655173"/>
         </scene>
-        <!--CollectionVC-->
+        <!--Collection View Controller-->
         <scene sceneID="hqu-2j-GS9">
             <objects>
-                <viewController id="vrt-ur-o9g" customClass="CollectionVC" customModule="MultiPokeation" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vrt-ur-o9g" customClass="CollectionViewController" customModule="MultiPokeation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZCA-8q-JWm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OpY-Ay-m4l">
-                                <rect key="frame" x="0.0" y="101" width="375" height="711"/>
+                                <rect key="frame" x="0.0" y="104" width="375" height="708"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="4" minimumInteritemSpacing="4" id="AE4-4W-od6">
                                     <size key="itemSize" width="182" height="182"/>
@@ -365,7 +366,7 @@
                                 </cells>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L3K-JK-VxD">
-                                <rect key="frame" x="20" y="54" width="37" height="30"/>
+                                <rect key="frame" x="19.999999999999996" y="57" width="39.666666666666657" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Pdg-Hj-Scg"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="15" id="dLz-SZ-Hjw"/>
@@ -385,13 +386,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Collection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pYs-Bu-GgA">
-                                <rect key="frame" x="104.66666666666667" y="49" width="165.66666666666663" height="38"/>
+                                <rect key="frame" x="118" y="52" width="139" height="38"/>
                                 <fontDescription key="fontDescription" name="MontserratAlternates-Bold" family="Montserrat Alternates" pointSize="31"/>
                                 <color key="textColor" red="1" green="0.89411764705882346" blue="0.75294117647058822" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="esH-P6-IQK">
-                                <rect key="frame" x="310.33333333333331" y="49" width="41.666666666666686" height="40"/>
+                                <rect key="frame" x="297" y="52" width="55" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="StI-oT-QJb"/>
                                     <constraint firstAttribute="height" constant="40" id="Xm0-RN-8j1"/>
@@ -444,16 +445,16 @@
             </objects>
             <point key="canvasLocation" x="2092" y="859.35960591133005"/>
         </scene>
-        <!--TrainingVC-->
+        <!--Training View Controller-->
         <scene sceneID="nUb-Cl-dxI">
             <objects>
-                <viewController storyboardIdentifier="TrainingVC" id="uO3-EZ-NYC" customClass="TrainingVC" customModule="MultiPokeation" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TrainingVC" id="uO3-EZ-NYC" customClass="TrainingViewController" customModule="MultiPokeation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ww6-AS-hrc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ugg-aJ-LvF">
-                                <rect key="frame" x="20" y="54" width="119" height="30"/>
+                                <rect key="frame" x="20.000000000000007" y="57" width="121.66666666666669" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="aRA-gS-1wT"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="gV3-ey-uaW"/>
@@ -473,16 +474,16 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="KQu-te-iam">
-                                <rect key="frame" x="222" y="44" width="137" height="42.666666666666657"/>
+                                <rect key="frame" x="224.66666666666663" y="47" width="134.33333333333337" height="41.333333333333343"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="evolution" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kXr-k4-CVA">
-                                        <rect key="frame" x="9.9999999999999929" y="0.0" width="117.33333333333331" height="30.666666666666668"/>
+                                        <rect key="frame" x="16.33333333333335" y="0.0" width="101.66666666666669" height="29.333333333333332"/>
                                         <fontDescription key="fontDescription" name="MontserratAlternates-Regular" family="Montserrat Alternates" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="No2-ve-fzg">
-                                        <rect key="frame" x="0.0" y="38.666666666666671" width="137" height="4"/>
+                                        <rect key="frame" x="0.0" y="37.333333333333329" width="134.33333333333334" height="4"/>
                                         <color key="progressTintColor" red="0.94323444369999998" green="1" blue="0.76193863149999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </progressView>
                                 </subviews>
@@ -494,25 +495,25 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="4Ed-Ub-YNy">
-                                <rect key="frame" x="75.333333333333329" y="116.66666666666666" width="224.66666666666669" height="86.666666666666657"/>
+                                <rect key="frame" x="90.000000000000014" y="118.33333333333334" width="195.33333333333337" height="83.333333333333343"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Training 👾" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JZh-z0-8WC">
-                                        <rect key="frame" x="0.0" y="0.0" width="224.66666666666666" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="195.33333333333334" height="48"/>
                                         <fontDescription key="fontDescription" name="MontserratAlternates-Regular" family="Montserrat Alternates" pointSize="41"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="47X-YM-Qza">
-                                        <rect key="frame" x="63.000000000000021" y="55.999999999999979" width="98.333333333333314" height="30.666666666666664"/>
+                                        <rect key="frame" x="50.33333333333335" y="54.000000000000021" width="94.666666666666686" height="29.333333333333336"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="quest" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cVZ-bk-Je0">
-                                                <rect key="frame" x="0.0" y="0.0" width="71" height="30.666666666666668"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="62.666666666666664" height="29.333333333333332"/>
                                                 <fontDescription key="fontDescription" name="MontserratAlternates-Regular" family="Montserrat Alternates" pointSize="25"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mFL-xf-H4P">
-                                                <rect key="frame" x="89" y="0.0" width="9.3333333333333286" height="30.666666666666668"/>
+                                                <rect key="frame" x="80.666666666666657" y="0.0" width="14" height="29.333333333333332"/>
                                                 <fontDescription key="fontDescription" name="MontserratAlternates-Regular" family="Montserrat Alternates" pointSize="25"/>
                                                 <color key="textColor" red="0.9983170629" green="0.73196667429999995" blue="0.73419582839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -522,25 +523,25 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="vMX-2G-BbS">
-                                <rect key="frame" x="119.33333333333333" y="218.33333333333331" width="136.33333333333337" height="195.33333333333331"/>
+                                <rect key="frame" x="120.66666666666669" y="216.66666666666663" width="134" height="192"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="XWR-Mt-Jcl">
-                                        <rect key="frame" x="0.0" y="0.0" width="136.33333333333334" height="73.333333333333329"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="134" height="70"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X79-C5-YSo">
-                                                <rect key="frame" x="0.0" y="0.0" width="34.333333333333336" height="73.333333333333329"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="33.666666666666664" height="70"/>
                                                 <fontDescription key="fontDescription" name="MontserratAlternates-Regular" family="Montserrat Alternates" pointSize="60"/>
                                                 <color key="textColor" red="0.9983170629" green="0.73196667429999995" blue="0.73419582839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bS8-D6-BbE">
-                                                <rect key="frame" x="53.333333333333321" y="3" width="29.666666666666664" height="67.333333333333329"/>
+                                                <rect key="frame" x="52.666666666666664" y="3" width="28.666666666666664" height="64.333333333333329"/>
                                                 <fontDescription key="fontDescription" name="MontserratAlternates-Regular" family="Montserrat Alternates" pointSize="55"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DbL-4E-BCE">
-                                                <rect key="frame" x="102.00000000000001" y="0.0" width="34.333333333333329" height="73.333333333333329"/>
+                                                <rect key="frame" x="100.33333333333333" y="0.0" width="33.666666666666671" height="70"/>
                                                 <fontDescription key="fontDescription" name="MontserratAlternates-Regular" family="Montserrat Alternates" pointSize="60"/>
                                                 <color key="textColor" red="0.9983170629" green="0.73196667429999995" blue="0.73419582839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -548,7 +549,7 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="=" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ars-xV-K5e">
-                                        <rect key="frame" x="52.333333333333321" y="74.333333333333343" width="31.666666666666664" height="40"/>
+                                        <rect key="frame" x="50.333333333333329" y="71.000000000000028" width="33" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="9kK-Z5-x0n"/>
                                         </constraints>
@@ -557,7 +558,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="?" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zU9-Gk-paZ">
-                                        <rect key="frame" x="18.333333333333329" y="115.33333333333334" width="100" height="80"/>
+                                        <rect key="frame" x="16.999999999999986" y="112.00000000000003" width="100" height="80"/>
                                         <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="IvZ-pr-I2g"/>
@@ -625,22 +626,22 @@
             </objects>
             <point key="canvasLocation" x="2500" y="77.58620689655173"/>
         </scene>
-        <!--SummaryVC-->
+        <!--Summary View Controller-->
         <scene sceneID="fYy-Ar-8kA">
             <objects>
-                <viewController storyboardIdentifier="SummaryVC" id="qvd-Ww-pyy" customClass="SummaryVC" customModule="MultiPokeation" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SummaryVC" id="qvd-Ww-pyy" customClass="SummaryViewController" customModule="MultiPokeation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fGV-XE-72J">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congratulations! 🎉" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U96-ad-oQO">
-                                <rect key="frame" x="36" y="79" width="303" height="38"/>
+                                <rect key="frame" x="53.666666666666657" y="82" width="267.66666666666674" height="36.333333333333343"/>
                                 <fontDescription key="fontDescription" name="MontserratAlternates-Regular" family="Montserrat Alternates" pointSize="31"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You fully trained" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3vQ-KS-W5h">
-                                <rect key="frame" x="37.666666666666657" y="127" width="300" height="46"/>
+                                <rect key="frame" x="37.666666666666657" y="128.33333333333334" width="300" height="46"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="CWb-yP-gb7"/>
                                     <constraint firstAttribute="width" constant="300" id="YbH-yX-qIU"/>
@@ -650,20 +651,20 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PokemonName" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="swq-ne-2y7">
-                                <rect key="frame" x="27" y="183" width="321.33333333333331" height="49"/>
+                                <rect key="frame" x="49.333333333333343" y="184.33333333333334" width="276.66666666666663" height="46.666666666666657"/>
                                 <fontDescription key="fontDescription" name="MontserratAlternates-Regular" family="Montserrat Alternates" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cp5-QE-Sbf">
-                                <rect key="frame" x="22.666666666666657" y="237" width="330" height="250"/>
+                                <rect key="frame" x="22.666666666666657" y="236" width="330" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="330" id="P2L-fk-AbW"/>
                                     <constraint firstAttribute="height" constant="250" id="viY-Od-Y3D"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="30z-P4-3zB">
-                                <rect key="frame" x="147.66666666666666" y="599" width="80" height="80"/>
+                                <rect key="frame" x="147.66666666666666" y="598" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="RQs-uJ-67y"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="mt0-cb-6OJ"/>
@@ -689,7 +690,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HNU-2j-r0W">
-                                <rect key="frame" x="103.33333333333333" y="713" width="168.66666666666669" height="50"/>
+                                <rect key="frame" x="112.66666666666669" y="713" width="150" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="Uor-cX-WBG"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="avV-TJ-A15"/>
@@ -711,7 +712,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can see him in your Pokemon collection" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lqf-Py-MDv">
-                                <rect key="frame" x="67" y="487" width="241" height="107"/>
+                                <rect key="frame" x="67" y="486" width="241" height="107"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="241" id="FbK-YI-5Wz"/>
                                     <constraint firstAttribute="height" constant="107" id="kO8-TX-jD3"/>
@@ -749,23 +750,23 @@
             </objects>
             <point key="canvasLocation" x="3500" y="473.64532019704433"/>
         </scene>
-        <!--EvolutionVC-->
+        <!--Evolution View Controller-->
         <scene sceneID="SU7-TT-mDM">
             <objects>
-                <viewController storyboardIdentifier="EvolutionVC" id="OFb-Io-f0y" customClass="EvolutionVC" customModule="MultiPokeation" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EvolutionVC" id="OFb-Io-f0y" customClass="EvolutionViewController" customModule="MultiPokeation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pgj-WJ-vh2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VK0-9x-DYc">
-                                <rect key="frame" x="27.666666666666657" y="244" width="320" height="366"/>
+                                <rect key="frame" x="27.666666666666657" y="244.66666666666663" width="320" height="366"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="FYs-sG-3ns"/>
                                     <constraint firstAttribute="height" constant="366" id="izW-en-eOF"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Great!💥" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qi9-Sw-67m">
-                                <rect key="frame" x="105.66666666666667" y="72" width="163.66666666666663" height="49"/>
+                                <rect key="frame" x="113" y="75" width="149" height="46.666666666666657"/>
                                 <fontDescription key="fontDescription" name="MontserratAlternates-Regular" family="Montserrat Alternates" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -793,7 +794,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Pokemon evolved to" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9L9-Ey-r4f">
-                                <rect key="frame" x="37.666666666666657" y="136" width="300" height="100"/>
+                                <rect key="frame" x="37.666666666666657" y="136.66666666666666" width="300" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="42C-Vx-d97"/>
                                     <constraint firstAttribute="width" constant="300" id="pZZ-bv-XVy"/>
@@ -803,7 +804,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PokemonName" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TzR-PI-jnp">
-                                <rect key="frame" x="27" y="620" width="321.33333333333331" height="49"/>
+                                <rect key="frame" x="49.333333333333343" y="620.66666666666663" width="276.66666666666663" height="46.666666666666629"/>
                                 <fontDescription key="fontDescription" name="MontserratAlternates-Regular" family="Montserrat Alternates" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -855,15 +856,15 @@
     <inferredMetricsTieBreakers>
         <segue reference="fBV-4H-32I"/>
         <segue reference="39i-6g-JWd"/>
-        <segue reference="ZLV-IH-yge"/>
+        <segue reference="MyI-wI-YGS"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="arrowshape.turn.up.backward" catalog="system" width="128" height="106"/>
+        <image name="arrowshape.turn.up.backward" catalog="system" width="128" height="104"/>
         <image name="book.closed.fill" catalog="system" width="115" height="128"/>
-        <image name="chevron.backward" catalog="system" width="96" height="128"/>
-        <image name="trash" catalog="system" width="121" height="128"/>
+        <image name="chevron.backward" catalog="system" width="97" height="128"/>
+        <image name="trash" catalog="system" width="117" height="128"/>
         <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
@@ -872,7 +873,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="tertiaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29803921568627451" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

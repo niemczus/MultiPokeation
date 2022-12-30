@@ -8,12 +8,14 @@
 import Foundation
 import UIKit
 
-extension TrainingVC {
+extension TrainingViewController {
     func correctAlert() {
-        let alert = UIAlertController(title: "Good!😃", message: "+\(plusValue) Points" , preferredStyle: .alert)
+        let alert = UIAlertController(title: "Good!😃",
+                                      message: "+\(plusValue) Points",
+                                      preferredStyle: .alert)
         let action = UIAlertAction(title: "Next quest", style: .default) { (_) in
             if self.checkEvolution() == false {
-            self.endTraining()
+                self.endTraining()
             }
         }
         alert.addAction(action)
@@ -23,6 +25,7 @@ extension TrainingVC {
     func wrongAlert() {
         var title = ""
         var message = ""
+        
         if score >= minusValue {
             title = "Wrong..😐"
             message = "-\(minusValue) points"
@@ -30,7 +33,10 @@ extension TrainingVC {
             title = "Wrong answer"
             message = "Try again 😉"
         }
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let alert = UIAlertController(title: title,
+                                      message: message,
+                                      preferredStyle: .alert)
         let action = UIAlertAction(title: "Next quest", style: .default) { (_) in
             self.endTraining()
         }
@@ -39,7 +45,9 @@ extension TrainingVC {
     }
     
     func summaryAlert() {
-        let alert = UIAlertController(title: "Take a rest!", message: "Correct answers: \(correctCounter) / 10", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "Take a rest!",
+                                      message: "Correct answers: \(correctCounter) / 10",
+                                      preferredStyle: .actionSheet)
         let action = UIAlertAction(title: "Ok", style: .default) { (_) in
             self.performSegue(withIdentifier: "sequeTrainingVCToMainVC", sender: nil)
         }
@@ -48,9 +56,11 @@ extension TrainingVC {
     }
 }
 
-extension MainVC {
+extension MainViewController {
     func restartAlert() {
-        let alert = UIAlertController(title: "You fully trained \(pokemonName)", message: .none, preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "You fully trained \(pokemonName)",
+                                      message: .none,
+                                      preferredStyle: .actionSheet)
         let action = UIAlertAction(title: "Train another", style: .default) { (_) in
             Settings.shared.evolutionNumber = 1
             Settings.shared.score = 0

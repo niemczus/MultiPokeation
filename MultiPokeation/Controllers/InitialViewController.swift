@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-class InitialVC: UIViewController {
+class InitialViewController: UIViewController {
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var firstEvolutionImageView: UIImageView!
@@ -42,7 +42,7 @@ class InitialVC: UIViewController {
         picker.delegate = self
         
         setupHideKeyboardOnTap()
-        changeUI()
+        setupViews()
         
         Settings.shared.pokemon = pokemon
         Settings.shared.pokemonName = pokemonName
@@ -58,28 +58,35 @@ class InitialVC: UIViewController {
         Settings.shared.firstChoose = "another"
     }
     
-    func getPokemons(firstID: Int, secondID: Int, thirdID: Int) {
+    func getPokemons(firstID: Int,
+                     secondID: Int,
+                     thirdID: Int) {
         let firstEvolutionImage = URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/\(firstID).png")
         firstEvolutionImageView.kf.setImage(with: firstEvolutionImage)
+        
         let secondEvolutionImage = URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/\(secondID).png")
         secondEvolutionImageView.kf.setImage(with: secondEvolutionImage)
+        
         let thirdEvolutionImage = URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/\(thirdID).png")
         thirdEvolutionImageView.kf.setImage(with: thirdEvolutionImage)
     }
     
-    func changeUI() {
+    func setupViews() {
         nameTextField.text = Settings.shared.username
         firstEvolutionImageView.layer.cornerRadius = 15
         secondEvolutionImageView.layer.cornerRadius = 15
         thirdEvolutionImageView.layer.cornerRadius = 15
-        setGradientBackground(colorTop: UIColor(red: 113/255, green: 43/255, blue: 117/255, alpha: 1).cgColor, colorBottom: UIColor(red: 162/255, green: 213/255, blue: 171/255, alpha: 1).cgColor)
+        setGradientBackground(colorTop: UIColor(red: 113/255, green: 43/255, blue: 117/255, alpha: 1).cgColor,
+                              colorBottom: UIColor(red: 162/255, green: 213/255, blue: 171/255, alpha: 1).cgColor)
         DispatchQueue.main.async {
-            self.getPokemons(firstID: pokemons[0].firstEvolution.number, secondID: pokemons[0].secondEvolution.number, thirdID: pokemons[0].thirdEvolution.number)
+            self.getPokemons(firstID: pokemons[0].firstEvolution.number,
+                             secondID: pokemons[0].secondEvolution.number,
+                             thirdID: pokemons[0].thirdEvolution.number)
         }
     }
 }
 
-extension InitialVC: UIPickerViewDataSource {
+extension InitialViewController: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -89,22 +96,27 @@ extension InitialVC: UIPickerViewDataSource {
     }
 }
 
-extension InitialVC: UITextFieldDelegate {
+extension InitialViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         nameTextField.resignFirstResponder()
         return true
     }
 }
 
-extension InitialVC: UIPickerViewDelegate {
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+extension InitialViewController: UIPickerViewDelegate {
+    func pickerView(_ pickerView: UIPickerView,
+                    didSelectRow row: Int,
+                    inComponent component: Int) {
         getPokemons(firstID: pokemons[row].firstEvolution.number, secondID: pokemons[row].secondEvolution.number, thirdID: pokemons[row].thirdEvolution.number)
         pokemonName = pokemons[row].firstEvolution.name
         pokemonNumber = pokemons[row].firstEvolution.number
         pokemon = row
     }
     
-    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+    func pickerView(_ pickerView: UIPickerView,
+                    viewForRow row: Int,
+                    forComponent component: Int,
+                    reusing view: UIView?) -> UIView {
         var pickerLabel: UILabel? = (view as? UILabel)
         if pickerLabel == nil {
             pickerLabel = UILabel()
